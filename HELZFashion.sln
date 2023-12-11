@@ -5,6 +5,18 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HELZFashion", "HELZFashion\HELZFashion.csproj", "{80AA5668-1B3B-43A0-B32E-B03332507E4B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{E7229046-DEFD-468B-94AE-A8C82F80554F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{39D89C69-EB08-4EDC-8D99-37BF03384156}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{F8C1012C-60D7-47B1-B057-AF01E2F05D6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HELZFashion.Domain", "Core\HELZFashion.Domain\HELZFashion.Domain.csproj", "{3F636FB7-92E5-4D88-A97F-CECD40D134D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HELZFashion.Persistence", "Infrastructure\HELZFashion.Persistence\HELZFashion.Persistence.csproj", "{615F5764-E3BA-4C21-8EE9-71A4F81F5594}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HELZFashion.MVC", "Presentation\HELZFashion.MVC\HELZFashion.MVC.csproj", "{8DAAD2CA-5903-4AFF-800C-6F5A278135DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +27,26 @@ Global
 		{80AA5668-1B3B-43A0-B32E-B03332507E4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80AA5668-1B3B-43A0-B32E-B03332507E4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80AA5668-1B3B-43A0-B32E-B03332507E4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F636FB7-92E5-4D88-A97F-CECD40D134D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F636FB7-92E5-4D88-A97F-CECD40D134D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F636FB7-92E5-4D88-A97F-CECD40D134D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F636FB7-92E5-4D88-A97F-CECD40D134D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{615F5764-E3BA-4C21-8EE9-71A4F81F5594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{615F5764-E3BA-4C21-8EE9-71A4F81F5594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{615F5764-E3BA-4C21-8EE9-71A4F81F5594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{615F5764-E3BA-4C21-8EE9-71A4F81F5594}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DAAD2CA-5903-4AFF-800C-6F5A278135DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DAAD2CA-5903-4AFF-800C-6F5A278135DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DAAD2CA-5903-4AFF-800C-6F5A278135DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DAAD2CA-5903-4AFF-800C-6F5A278135DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3F636FB7-92E5-4D88-A97F-CECD40D134D8} = {E7229046-DEFD-468B-94AE-A8C82F80554F}
+		{615F5764-E3BA-4C21-8EE9-71A4F81F5594} = {39D89C69-EB08-4EDC-8D99-37BF03384156}
+		{8DAAD2CA-5903-4AFF-800C-6F5A278135DA} = {F8C1012C-60D7-47B1-B057-AF01E2F05D6F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {164EF401-394D-4F78-AD13-B3C322366CD7}
