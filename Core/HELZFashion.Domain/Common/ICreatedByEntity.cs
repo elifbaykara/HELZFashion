@@ -10,6 +10,6 @@ namespace HELZFashion.Domain.Common
     public interface ICreatedByEntity
     {
         public DateTime CreatedOn { get; set; }
-
+        string CreatedByUserId { get; set; }
     }
 }

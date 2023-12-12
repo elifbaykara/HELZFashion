@@ -9,7 +9,8 @@ namespace HELZFashion.Domain.Common
     public interface IDeletedByEntity
     {
         public DateTime? DeletedOn { get; set; }
-
+        string? DeletedByUserId { get; set; }
+        bool? IsDeleted { get; set; }
     }
 
 }

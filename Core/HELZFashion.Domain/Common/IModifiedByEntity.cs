@@ -9,6 +9,6 @@ namespace HELZFashion.Domain.Common
     public interface IModifiedByEntity
     {
         public DateTime? ModifiedOn { get; set; }
-
+        string? ModifiedByUserId { get; set; }
     }
 }
