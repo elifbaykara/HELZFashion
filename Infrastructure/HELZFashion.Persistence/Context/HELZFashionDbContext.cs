@@ -21,5 +21,6 @@ namespace HELZFashion.Persistence.Context
         public HELZFashionDbContext()
         {
         }
+
     }
 }
