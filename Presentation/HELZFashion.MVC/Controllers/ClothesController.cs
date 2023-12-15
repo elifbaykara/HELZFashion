@@ -1,8 +1,11 @@
-﻿using HELZFashion.MVC.Models;
+﻿using HELZFashion.Domain.Entities;
+using HELZFashion.Domain.Enums;
+using HELZFashion.MVC.Models;
 using HELZFashion.Persistence.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.Metrics;
+using System.Drawing;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HELZFashion.MVC.Controllers
@@ -34,7 +37,7 @@ namespace HELZFashion.MVC.Controllers
             {
                 Brands = brands,
                 Categories = categories,
-            
+
             };
 
             return View(model);
@@ -46,7 +49,7 @@ namespace HELZFashion.MVC.Controllers
             var brand = _context.Brands.Where(x => x.Id == Guid.Parse(brandId)).FirstOrDefault();
             var category = _context.Categories.Where(x => x.Id == Guid.Parse(categoryId)).FirstOrDefault();
 
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description) ||  string.IsNullOrEmpty(price))
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(price))
             {
                 // Gerekli alanlar boşsa veya null ise, hata mesajı oluşturun ve geri dönün.
                 ModelState.AddModelError("Validation", "Name, Description and Price are required.");
@@ -58,7 +61,7 @@ namespace HELZFashion.MVC.Controllers
                 Name = name,
                 Description = description,
                 Price = decimal.Parse(price),
-                ImageUrl = pictureUrl, 
+                ImageUrl = pictureUrl,
                 ColorType = (HELZFashion.Domain.Enums.ColorType)Convert.ToInt32(color),
                 Brand = brand,
                 Category = category,
@@ -76,7 +79,7 @@ namespace HELZFashion.MVC.Controllers
         [HttpGet]
         //Delete method:
         // [Route("[controller]/[action]/{id}")]
-        public IActionResult DeleteInstrument(string id)
+        public IActionResult Delete(string id)
         {
             var clothes = _context.ClothesList.Where(x => x.Id == Guid.Parse(id)).FirstOrDefault();
 
@@ -99,7 +102,7 @@ namespace HELZFashion.MVC.Controllers
 
             if (clothes != null)
             {
-            
+
                 if (!string.IsNullOrEmpty(clothes.ImageUrl))
                 {
                     return View(clothes);
@@ -109,14 +112,37 @@ namespace HELZFashion.MVC.Controllers
             return View(clothes);
         }
 
+        [HttpGet]
+        public IActionResult Update()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Update(Guid id, string name, string description, string brandId, decimal price, ColorType color, string pictureUrl, Category categoryId)
+        {
+
+            var brand = _context.Brands.Where(x => x.Id == Guid.Parse(brandId)).FirstOrDefault();
+            var clothes = _context.ClothesList.FirstOrDefault(x => x.Id == id);
+
+            if (clothes is not null)
+            {
+                clothes.Name = name;
+                clothes.Description = description;
+                clothes.Brand = brand;
+                clothes.Price = price;
+                clothes.ColorType = color;
+                clothes.ImageUrl = pictureUrl;
+                clothes.Category = categoryId;
 
 
+                _context.SaveChanges();
+                return RedirectToAction("Index");
 
+            }
+            return View("error");
 
-
-
-
-
+        }
 
     }
 }
