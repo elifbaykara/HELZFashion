@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace HELZFashion.Domain.Entities
 {
-    internal class Basket
+    public class Basket
     {
+
     }
 }
