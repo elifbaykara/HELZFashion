@@ -1,0 +1,107 @@
+﻿@using HELZFashion.Domain.Entities
+@model HELZFashion.MVC.Models.ClothesAddBrandCategory
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="color: navy;">Add Clothes</h2>
+
+    <form method="post">
+        <div class="mb-3 mt-3">
+            <label class="form-label"><strong>Name:</strong></label>
+            <input asp-for="Clothes.Name" class="form-control" name="name" required />
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback" style="color: red;">Please fill out this field.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><strong>Description:</strong></label>
+            <input asp-for="Clothes.Description" class="form-control" name="description" required />
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback" style="color: red;">Please fill out this field.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><strong>Production Year:</strong></label>
+            <input asp-for="Clothes.Material" class="form-control" name="material" required />
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback" style="color: red;">Please fill out this field.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><strong>Price:</strong></label>
+            <input asp-for="Clothes.Price" class="form-control" name="price" required />
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback" style="color: red;">Please fill out this field.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><strong>Color:</strong></label>
+            <select asp-for="Clothes.ColorType" class="form-select" name="color" required>
+                <option value="1">Blue</option>
+                <option value="2">Green</option>
+                <option value="3">Red</option>
+                <option value="4">Yellow</option>
+                <option value="5">Orange</option>
+                <option value="6">Purple</option>
+                <option value="7">Pink</option>
+                <option value="8">Teal</option>
+                <option value="9">Brown</option>
+                <option value="10">Gray</option>
+            </select>
+            <div class="invalid-feedback" style="color: red;">Please fill out this field.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><strong>Image:</strong></label>
+            <input asp-for="Clothes.ImageUrl" class="form-control" name="pictureUrl" required />
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback" style="color: red;">Please fill out this field.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><strong>Size Type:</strong></label>
+            <select asp-for="Clothes.SizeType" class="form-select" name="sizeType" required>
+                <option value="1">XS</option>
+                <option value="2">S</option>
+                <option value="3">M</option>
+                <option value="4">L</option>
+                <option value="5">XL</option>
+                <option value="6">XXL</option>
+            </select>
+            <div class="invalid-feedback" style="color: red;">Please fill out this field.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><strong>Gender:</strong></label>
+            <select asp-for="Clothes.Gender" class="form-select" name="gender" required>
+                <option value="0">Adult Female</option>
+                <option value="1">Adult Male</option>
+                <option value="2">Girl Child</option>
+                <option value="3">Boy Child</option>
+            </select>
+            <div class="invalid-feedback" style="color: red;">Please fill out this field.</div>
+        </div>
+
+        <br />
+        <select name="brandId" class="form-select" required>
+            <option value=""><strong>Select a Brand</strong></option>
+            @foreach (var brand in Model.Brands)
+            {
+                <option value="@brand.Id">@brand.Name</option>
+            }
+        </select>
+        <select name="categoryId" class="form-select" required>
+            <option value=""><strong>Select a Category</strong></option>
+            @foreach (var category in Model.Categories)
+            {
+                <option value="@category.Id">@category.CategoryName</option>
+            }
+        </select>
+        <br />
+        <br />
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</body>
+</html>
