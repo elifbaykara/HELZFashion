@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace HELZFashion.Domain.Common
 {
-
-    public interface ICreatedByEntity
+    public interface IEntityBase<TKey>
     {
-        public DateTimeOffset CreatedOn { get; set; }
-        string CreatedByUserId { get; set; }
+        public TKey Id { get; set; }
     }
 }
