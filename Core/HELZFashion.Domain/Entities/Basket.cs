@@ -11,7 +11,7 @@ namespace HELZFashion.Domain.Entities
     public class Basket : EntityBase<Guid>
     {
         public List<BasketItem> Items { get; set; }
-        
+
     }
     public class BasketItem : EntityBase<Guid>
     {
@@ -19,4 +19,3 @@ namespace HELZFashion.Domain.Entities
         public int Quantity { get; set; }
     }
 }
-
