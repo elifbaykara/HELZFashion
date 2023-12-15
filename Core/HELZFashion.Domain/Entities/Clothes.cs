@@ -1,4 +1,5 @@
-﻿using HELZFashion.Domain.Enums;
+﻿using HELZFashion.Domain.Common;
+using HELZFashion.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HELZFashion.Domain.Entities
 {
-    public class Clothes
+    public class Clothes : EntityBase<Guid> 
     {
         public string Name { get; set; }
         public string Description { get; set; }

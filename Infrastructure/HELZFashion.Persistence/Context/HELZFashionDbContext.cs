@@ -12,15 +12,19 @@ namespace HELZFashion.Persistence.Context
 {
     public class HELZFashionDbContext : DbContext
     {
-       
-       public DbSet<Basket> Baskets { get; set; }
-       public DbSet<Brand> Brands { get; set; }
        public DbSet<Category> Categories { get; set; }
-       public DbSet<Clothes> Clothes { get; set; }
-       public DbSet<Order> Orders { get; set; }
+
+        public DbSet<Clothes> ClothesList { get; set; }
+
+        public DbSet<Brand> Brands { get; set; }
         public HELZFashionDbContext(DbContextOptions<HELZFashionDbContext> dbContextOptions) : base(dbContextOptions)
         {
 
         }
+
+        public HELZFashionDbContext()
+        {
+        }
+
     }
 }
