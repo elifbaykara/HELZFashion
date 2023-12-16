@@ -8,9 +8,9 @@ namespace HELZFashion.MVC.Controllers
     public class CategoryController : Controller
     {
        private readonly HELZFashionDbContext _dbcontext;
-        public CategoryController()
+        public CategoryController(HELZFashionDbContext dbcontext)
         {
-            _dbcontext = new();
+            _dbcontext = dbcontext;
         }
         public IActionResult Index()
         {

@@ -13,9 +13,9 @@ namespace HELZFashion.MVC.Controllers
     public class ClothesController : Controller
     {
         private readonly HELZFashionDbContext _context;
-        public ClothesController()
+        public ClothesController(HELZFashionDbContext context)
         {
-            _context = new();
+            _context = context;
         }
         public IActionResult Index()
         {
