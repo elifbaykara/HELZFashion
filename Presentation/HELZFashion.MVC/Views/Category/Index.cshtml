@@ -1,0 +1,64 @@
+﻿﻿@using HELZFashion.Domain.Entities
+@model List<Category>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: lightgoldenrodyellow;
+            color: orchid;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 15px;
+            padding: 15px;
+        }
+
+        .navMenu {
+            list-style-type: none;
+            margin: 15px;
+            padding: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2> Categories</h2>
+
+    <ul class="navMenu">
+
+        <li><a asp-action="Add" asp-route-id="id" class="btn bg-primary text-black">Add</a></li>
+
+    </ul>
+
+
+    <table class="table table-striped table-bordered">
+
+        <thead>
+
+            <tr class="fw-bold">
+                <td>Category Name</td>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>@category.CategoryName</td>
+                    <td><a asp-action="Delete" asp-route-id="@category.Id" class="btn bg-danger text-black">Delete</a></td>
+                    <td><a asp-action="Update" asp-route-id="@category.Id" class="btn bg-warning text-black">Update</a></td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
