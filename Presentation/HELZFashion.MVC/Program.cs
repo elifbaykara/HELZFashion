@@ -68,6 +68,11 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = new PathString("/Auth/AccessDenied");
 });
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session süresi ayarlanabilir
+});
+
 
 var app = builder.Build();
 
@@ -86,11 +91,12 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.UseSession();
+
 
 app.UseNToastNotify();
 
