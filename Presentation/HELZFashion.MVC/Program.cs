@@ -45,7 +45,7 @@ builder.Services.AddIdentity<User, Role>
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
         options.User.RequireUniqueEmail = false;
 
-    }).AddEntityFrameworkStores<TeamHELZDbContext>();
+    }).AddEntityFrameworkStores<HELZIdentityContext>();
 
 builder.Services.Configure<SecurityStampValidatorOptions>(options =>
 {
