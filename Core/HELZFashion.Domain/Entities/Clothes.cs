@@ -15,10 +15,12 @@ namespace HELZFashion.Domain.Entities
         public decimal Price { get; set; }
         public string Material { get; set; }
         public string ImageUrl { get; set; }
+        public Guid BrandId { get; set; }
         public Brand Brand { get; set; }
         public ColorType ColorType { get; set; }
         public Gender Gender { get; set; }
         public SizeType SizeType { get; set; }
+        public Guid CategoryId { get; set; }
         public Category Category { get; set; }
     }
 }

@@ -11,9 +11,9 @@ namespace HELZFashion.MVC.Controllers
 {
     public class BasketController : Controller
     {
-        private readonly HELZFashionDbContext _context;
+        private readonly TeamHELZDbContext _context;
 
-        public BasketController(HELZFashionDbContext context)
+        public BasketController(TeamHELZDbContext context)
         {
             _context = context;
   
@@ -37,7 +37,7 @@ namespace HELZFashion.MVC.Controllers
         public IActionResult AddToBasket(Guid productId, int quantity)
         {
             var basket = HttpContext.Session.Get<Basket>("Basket");
-            var clothes = _context.Clothes.Include(x => x.Brand).FirstOrDefault(x => x.Id == productId);
+            var clothes = _context.ClothesList.Include(x => x.Brand).FirstOrDefault(x => x.Id == productId);
 
             if (basket == null)
             {

@@ -12,7 +12,7 @@ namespace HELZFashion.Domain.Entities
     {
         public string ShippingAddress { get; set; }
         public PaymentMethod Payment { get; set; }
-        public DateTime OrderDate { get; set; }
+        public DateTimeOffset OrderDate { get; set; }
         public OrderStatus Status { get; set; }
         public Basket OrderItems { get; set; }
 

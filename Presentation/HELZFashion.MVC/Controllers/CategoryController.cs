@@ -7,8 +7,8 @@ namespace HELZFashion.MVC.Controllers
 {
     public class CategoryController : Controller
     {
-       private readonly HELZFashionDbContext _dbcontext;
-        public CategoryController(HELZFashionDbContext dbcontext)
+       private readonly TeamHELZDbContext _dbcontext;
+        public CategoryController(TeamHELZDbContext dbcontext)
         {
             _dbcontext = dbcontext;
         }

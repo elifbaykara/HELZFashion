@@ -12,8 +12,8 @@ namespace HELZFashion.MVC.Controllers
 {
     public class ClothesController : Controller
     {
-        private readonly HELZFashionDbContext _context;
-        public ClothesController(HELZFashionDbContext dbcontext)
+        private readonly TeamHELZDbContext _context;
+        public ClothesController(TeamHELZDbContext dbcontext)
         {
             _context = dbcontext;
         }

@@ -22,12 +22,12 @@ builder.Services.AddDbContext<HELZIdentityContext>(options =>
     options.UseNpgsql(connectionString);
 });
 
-builder.Services.AddDbContext<HELZFashionDbContext>(options =>
+builder.Services.AddDbContext<TeamHELZDbContext>(options =>
 {
     options.UseNpgsql(connectionString);
 });
 
-builder.Services.AddDbContext<HELZFashionDbContext>();
+builder.Services.AddDbContext<TeamHELZDbContext>();
 
 
 builder.Services.AddSession();
@@ -45,7 +45,7 @@ builder.Services.AddIdentity<User, Role>
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
         options.User.RequireUniqueEmail = false;
 
-    }).AddEntityFrameworkStores<HELZFashionDbContext>();
+    }).AddEntityFrameworkStores<TeamHELZDbContext>();
 
 builder.Services.Configure<SecurityStampValidatorOptions>(options =>
 {

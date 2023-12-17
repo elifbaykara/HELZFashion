@@ -17,5 +17,6 @@ namespace HELZFashion.Domain.Entities
         public Gender Gender{ get; set; }
         public SizeType SizeType { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
+        public ICollection<Clothes> Clothes { get; set; }
     }
 }

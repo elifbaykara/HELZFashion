@@ -12,9 +12,9 @@ namespace HELZFashion.MVC.Controllers
 {
     public class OrderController : Controller
     {
-        private readonly HELZFashionDbContext _context;
+        private readonly TeamHELZDbContext _context;
 
-        public OrderController(HELZFashionDbContext context)
+        public OrderController(TeamHELZDbContext context)
         {
             _context = context;
         }

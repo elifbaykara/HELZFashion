@@ -10,8 +10,10 @@ namespace HELZFashion.Domain.Entities
 {
     public class Basket : EntityBase<Guid>
     {
+
+        public Guid OrderId { get; set; }
         public List<BasketItem> Items { get; set; }
-        
+
     }
     public class BasketItem : EntityBase<Guid>
     {
