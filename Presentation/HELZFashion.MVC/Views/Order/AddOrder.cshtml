@@ -1,0 +1,74 @@
+﻿@model HELZFashion.MVC.ViewModels.BasketAndOrderViewModel
+@using HELZFashion.Domain.Enums;
+<h1>AddOrder</h1>
+
+<h4>Order</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <div class="container mt-3">
+            @if (Model.Basket.Items.Count > 0)
+            {
+                decimal total_price = 0;
+                <h2>Delivery Information</h2>
+                <form asp-action="AddOrder" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="ShippingAddress" class="control-label">Shipping Address:</label>
+                        <input name="orderShippingAddress" class="form-control" />
+                        <span asp-validation-for="ShippingAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Payment Method:</label>
+                        <select name="orderPaymentMethod" class="form-select">
+                            @foreach (var paymentMethod in Enum.GetValues(typeof(PaymentMethod)))
+                            {
+                                <option value="@paymentMethod">@paymentMethod</option>
+                            }
+                        </select>
+                        <span asp-validation-for="Payment" class="text-danger"></span>
+                    </div>
+                    <br/>
+                    
+                    <div class="form-group">
+                        <input  type="submit" value="AddOrder" class="btn btn-primary" />
+                    </div>
+                </form>
+                 <table class="table table-white table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Basket.Items)
+                                {
+                                    <tr>
+                                        <td>@item.Clothes.Name</td>
+                                        <td>@item.Clothes.Price</td>
+                                        <td>@item.Quantity</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                            @foreach (var item in Model.Basket.Items)
+                            {
+                                total_price += item.Clothes.Price;
+                            }
+                        <h3>Total Price: @total_price &#x20BA;</h3>
+            }
+            else
+            {
+                <p>Your basket is empty.</p>
+            }
+            
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
