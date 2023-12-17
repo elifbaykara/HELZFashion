@@ -1,0 +1,45 @@
+﻿﻿@using HELZFashion.Domain.Entities;
+@model Clothes
+
+<style>
+    body {
+        background-color: darkgrey; /* Arka plan rengi*/
+    }
+
+    h2 {
+        color: #800000; 
+        font-family: 'Pacifico', cursive, sans-serif; /* El yazısı stilinde yazı tipi */
+    }
+
+    .price {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .description {
+        font-style: italic;
+    }
+
+    .product-image {
+        border: 2px solid #800000; /* Bordo renkli çerçeve */
+        padding: 10px; /* Çerçeve iç boşluğu */
+    }
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<body>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="@Model.ImageUrl" alt="Product Image" class="img-fluid product-image">
+            </div>
+            <div class="col-md-6">
+                <h2 class="my-3">@Model.Name</h2>
+                <p class="description">@Model.Description</p>
+                <p class="price">Price: $@Model.Price</p>
+                <button class="btn btn-outline-success">Buy Now</button>
+            </div>
+        </div>
+    </div>
+</body>

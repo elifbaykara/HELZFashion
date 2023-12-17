@@ -1,0 +1,84 @@
+﻿@model HELZFashion.MVC.Models.ClothesAddBrandCategory
+
+<h2 style="color: pink;">Update Clothes</h2>
+
+<form method="post">
+    <div class="mb-3 mt-3">
+        <label class="form-label">Name:</label>
+        <input asp-for="Clothes.Name" class="form-control" name="name" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Description:</label>
+        <input asp-for="Clothes.Description" class="form-control" name="description" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Material:</label>
+        <input asp-for="Clothes.Material" class="form-control" name="material" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Price:</label>
+        <input asp-for="Clothes.Price" class="form-control" name="price" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">ImageUrl:</label>
+        <input asp-for="Clothes.ImageUrl" class="form-control" name="pictureUrl" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Color:</label>
+        <select asp-for="Clothes.ColorType" class="form-select" name="color" required>
+            <option value="1">Blue</option>
+            <option value="2">Green</option>
+            <option value="3">Red</option>
+            <option value="4">Yellow</option>
+            <option value="5">Orange</option>
+            <option value="6">Purple</option>
+            <option value="7">Pink</option>
+            <option value="8">Teal</option>
+            <option value="9">Brown</option>
+            <option value="10">Gray</option>
+        </select>
+    </div>
+
+    <br />
+    <select asp-for="Clothes.Brand.Id" class="form-select" required>
+        @foreach (var brand in Model.Brands)
+        {
+            <option value="@brand.Id">@brand.Name</option>
+        }
+    </select>
+    <select asp-for="Clothes.Category.Id" class="form-select" required>
+        @foreach (var category in Model.Categories)
+        {
+            <option value="@category.Id">@category.CategoryName</option>
+        }
+    </select>
+
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Size Type:</label>
+        <select asp-for="Clothes.SizeType" class="form-select" required>
+            <option value="1">XS</option>
+            <option value="2">S</option>
+            <option value="3">M</option>
+            <option value="4">L</option>
+            <option value="5">XL</option>
+            <option value="6">XXL</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Gender:</label>
+        <select asp-for="Clothes.Gender" class="form-select" required>
+            <option value="0">Adult Female</option>
+            <option value="1">Adult Male</option>
+            <option value="2">Girl Child</option>
+            <option value="3">Boy Child</option>
+            <!-- Add other gender options here -->
+        </select>
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
