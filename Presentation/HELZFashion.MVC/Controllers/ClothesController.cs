@@ -13,15 +13,13 @@ namespace HELZFashion.MVC.Controllers
     public class ClothesController : Controller
     {
         private readonly HELZFashionDbContext _context;
-        public ClothesController(HELZFashionDbContext context)
+        public ClothesController(HELZFashionDbContext dbcontext)
         {
-            _context = context;
+            _context = dbcontext;
         }
         public IActionResult Index()
         {
             var products = _context.ClothesList.Include(x => x.Brand).Include(x => x.Category).ToList();
-
-
             return View(products);
         }
 

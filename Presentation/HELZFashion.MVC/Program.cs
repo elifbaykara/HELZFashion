@@ -1,5 +1,6 @@
 
 using HELZFashion.Domain.Identity;
+using HELZFashion.MVC.Controllers;
 using HELZFashion.Persistence.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,9 @@ builder.Services.AddDbContext<HELZFashionDbContext>(options =>
 {
     options.UseNpgsql(connectionString);
 });
+
+builder.Services.AddDbContext<HELZFashionDbContext>();
+
 
 builder.Services.AddSession();
 
