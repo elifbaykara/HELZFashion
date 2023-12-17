@@ -3,30 +3,154 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - HELZFashion.MVC</title>
+    <title>@ViewData["Title"] - HELZFrontend</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/HELZFashion.MVC.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/HELZFrontend.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px;
+        }
+
+        .searchbar {
+            display: flex;
+            align-items: center;
+            height: 35px;
+            margin-left: 40px;
+        }
+
+        .form-control {
+            margin-bottom: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .search_input {
+            border-radius: 25px 0 0 25px;
+            padding: 10px;
+            height: 35px;
+        }
+
+        .search_icon {
+            border-radius: 0 25px 25px 0;
+            background: #47280B;
+            padding: 5px;
+            cursor: pointer;
+            height: 35px;
+            color: white;
+        }
+
+        .nav-item-spacing {
+            margin-right: 150px; /* Adjust the margin value as needed */
+        }
+
+        nav {
+            background-color: #47280B;
+        }
+
+        .category {
+            background-color: #CDD873;
+        }
+
+        .clothes {
+            background-color: #28543C;
+        }
+
+        .brand {
+            background-color: #D03B3B;
+        }
+        /* Adjust the background color of the dropdown menu items */
+        .dropdown-menu.category a,
+        .dropdown-menu.clothes a,
+        .dropdown-menu.brand a {
+            color: white; /* Set the desired text color */
+        }
+
+            /* Add hover effect for better visibility */
+            .dropdown-menu.category a:hover,
+            .dropdown-menu.clothes a:hover,
+            .dropdown-menu.brand a:hover {
+                background-color: #ddd; /* Adjust the hover background color as needed */
+            }
+
+    </style>
+
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HELZFashion.MVC</a>
+        <div class="container">
+            <img src="https://i.pinimg.com/originals/55/f9/85/55f98565644ca47d20b36fc2ae43a944.jpg" width="150px">
+
+            <div class="container h-100">
+                <div class="d-flex justify-content-center">
+                    <div class="searchbar">
+                        <input class="search_input form-control" type="text" name="" placeholder="Search...">
+                        <button href="#" class="search_icon"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="https://i.pinimg.com/474x/56/db/55/56db55b4a1c25714c100d86d2ff8f67d.jpg" width="150px">
+                </a>
+
+                <img src="https://i.pinimg.com/474x/14/58/63/14586383190a2d3e39c1d103759643ee.jpg" width="90px">
+                <img src="https://i.pinimg.com/474x/71/28/0f/71280faddd64e21ce73316035b6eda7b.jpg" width="70px" style="margin-right:5px">
+
+            </div>
+
+
+            <img src="https://i.pinimg.com/originals/55/f9/85/55f98565644ca47d20b36fc2ae43a944.jpg" width="150px">
+        </div>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3">
+
+
+            <div class="container-fluid mt-2">
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    <ul class="navbar-nav flex-grow-1 justify-content-center">
+                        <!-- Inside the <ul> for the "Category" menu -->
+                        <li class="nav-item nav-item-spacing dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; background-color: #CDD873; border-radius: 45px; font-size: 20px; padding-right:25px;  padding-left:25px">
+                                Category
+                            </a>
+                            <div class="dropdown-menu category" aria-labelledby="categoryDropdown">
+                                <a class="dropdown-item" href="#">Add Category</a>
+                                <a class="dropdown-item" href="#">List Category</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+                        <!-- Inside the <ul> for the "Clothes" menu -->
+                        <li class="nav-item nav-item-spacing dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="clothesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; background-color: #28543C; border-radius: 45px; font-size: 20px; padding-right:25px; padding-left:25px">
+                                Clothes
+                            </a>
+                            <div class="dropdown-menu  clothes" aria-labelledby="clothesDropdown">
+                                <a class="dropdown-item" href="#">Add Clothes</a>
+                                <a class="dropdown-item" href="#">List Clothes</a>
+                            </div>
                         </li>
+
+                        <!-- Inside the <ul> for the "Brand" menu -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="brandDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; background-color: #D03B3B; border-radius: 45px; font-size: 20px; padding-right:25px; padding-left:25px">
+                                Brand
+                            </a>
+                            <div class="dropdown-menu  brand" aria-labelledby="brandDropdown">
+                                <a class="dropdown-item" href="#">Add Brand</a>
+                                <a class="dropdown-item" href="#">List Brand</a>
+                            </div>
+                        </li>
+
                     </ul>
                 </div>
+
             </div>
         </nav>
     </header>
@@ -38,7 +162,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - HELZFashion.MVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - HELZFashion
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
