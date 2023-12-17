@@ -1,0 +1,44 @@
+﻿@model HELZFashion.Domain.Entities.Basket
+
+<div class="container mt-3">
+    <h2>Basket</h2>
+
+    @if (Model.Items.Count == 0)
+    {
+        <p>Your basket is empty.</p>
+    }
+    else
+    {
+        decimal total_price = 0;
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>@item.Clothes.Name</td>
+                        <td>@item.Clothes.Brand.Name</td>
+                        <td>@item.Clothes.Price</td>
+                        <td>@item.Quantity</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        {
+            @foreach (var item in Model.Items)
+            {
+                total_price += item.Clothes.Price;
+            }
+        }
+        <h3>Total Price: @total_price &#x20BA; </h3>
+
+        <a asp-controller="Order" asp-action="AddOrder" class="btn btn-primary">Checkout</a>
+    }
+</div>
