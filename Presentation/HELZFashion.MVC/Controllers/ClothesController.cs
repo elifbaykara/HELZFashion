@@ -20,6 +20,7 @@ namespace HELZFashion.MVC.Controllers
         public IActionResult Index()
         {
             var products = _context.ClothesList.Include(x => x.Brand).Include(x => x.Category).ToList();
+
             return View(products);
         }
 
@@ -35,6 +36,7 @@ namespace HELZFashion.MVC.Controllers
             {
                 Brands = brands,
                 Categories = categories,
+                Clothes = new Clothes()
 
             };
 
@@ -42,7 +44,7 @@ namespace HELZFashion.MVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(string name, string description, string brandId, string price, string pictureUrl, string categoryId, string color)
+        public IActionResult Add(string name, string material, string description, string brandId, string price, string pictureUrl, string categoryId, string color)
         {
             var brand = _context.Brands.Where(x => x.Id == Guid.Parse(brandId)).FirstOrDefault();
             var category = _context.Categories.Where(x => x.Id == Guid.Parse(categoryId)).FirstOrDefault();
@@ -58,6 +60,7 @@ namespace HELZFashion.MVC.Controllers
                 Id = Guid.NewGuid(),
                 Name = name,
                 Description = description,
+                Material = material,
                 Price = decimal.Parse(price),
                 ImageUrl = pictureUrl,
                 ColorType = (HELZFashion.Domain.Enums.ColorType)Convert.ToInt32(color),
@@ -110,12 +113,54 @@ namespace HELZFashion.MVC.Controllers
             return View(clothes);
         }
 
-        [HttpGet]
-        public IActionResult Update()
-        {
-            return View();
-        }
+        /* [HttpGet]
+         public IActionResult Update()
+         {
+             return View();
+         }
 
+         [HttpPost]
+         public IActionResult Update(Guid id, string name, string description, string brandId, decimal price, ColorType color, string pictureUrl, Category categoryId)
+         {
+
+             var brand = _context.Brands.Where(x => x.Id == Guid.Parse(brandId)).FirstOrDefault();
+             var clothes = _context.ClothesList.FirstOrDefault(x => x.Id == id);
+
+             if (clothes is not null)
+             {
+                 clothes.Name = name;
+                 clothes.Description = description;
+                 clothes.Brand = brand;
+                 clothes.Price = price;
+                 clothes.ColorType = color;
+                 clothes.ImageUrl = pictureUrl;
+                 clothes.Category = categoryId;
+
+
+                 _context.SaveChanges();
+                 return RedirectToAction("Index");
+
+             }
+             return View("error");
+
+         }*/
+
+        [HttpGet]
+        public IActionResult Update(Guid id)
+        {
+            var clothing = _context.ClothesList.Include(x => x.Brand).Include(x => x.Category).FirstOrDefault(x => x.Id == id);
+            var brands = _context.Brands.ToList();
+            var categories = _context.Categories.ToList();
+
+            var addClothes = new ClothesAddBrandCategory
+            {
+                Clothes = clothing,
+                Brands = brands,
+                Categories = categories
+            };
+
+            return View(addClothes);
+        }
         [HttpPost]
         public IActionResult Update(Guid id, string name, string description, string brandId, decimal price, ColorType color, string pictureUrl, Category categoryId)
         {
@@ -138,9 +183,15 @@ namespace HELZFashion.MVC.Controllers
                 return RedirectToAction("Index");
 
             }
-            return View("error");
 
+            return RedirectToAction("Index");
         }
+
+
+
+
+
+
 
     }
 }

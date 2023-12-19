@@ -22,26 +22,11 @@ namespace HELZFashion.Persistence.Configurations
                 .IsRequired()
                 .HasMaxLength(70);
 
-            builder.Property(x => x.ProductName)
-                    .IsRequired()
-                    .HasMaxLength(70);
-
-            builder.Property(x => x.ColorType)
-                   .IsRequired()
-                   .HasConversion<int>();
-
             builder.Property(x => x.Gender)
                    .IsRequired()
                    .HasConversion<int>();
 
-            builder.Property(x => x.SizeType)
-                   .IsRequired()
-                   .HasConversion<int>();
-
-            builder.Property(x => x.PaymentMethod)
-                   .IsRequired()
-                   .HasConversion<int>();
-
+ 
 
         }
     }

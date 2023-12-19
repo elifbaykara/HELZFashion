@@ -4,6 +4,7 @@ using HELZFashion.MVC.Controllers;
 using HELZFashion.Persistence.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -72,6 +73,13 @@ builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30); // Session süresi ayarlanabilir
 });
+/*builder.Services.AddControllersWithViews()
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+    });
+bu kisma tekrar bak calismazsa sil*/
+
 
 
 var app = builder.Build();

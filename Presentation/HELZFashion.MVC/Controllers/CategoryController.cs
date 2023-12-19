@@ -1,7 +1,10 @@
 ﻿using HELZFashion.Domain.Entities;
+using HELZFashion.Domain.Enums;
+using HELZFashion.MVC.Models;
 using HELZFashion.Persistence.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Drawing;
 
 namespace HELZFashion.MVC.Controllers
 {
@@ -19,18 +22,50 @@ namespace HELZFashion.MVC.Controllers
         }
 
         //Add
+
+        /* [HttpGet]
+         public IActionResult Add()
+         {
+             var model = new ClothesAddBrandCategory
+             {
+                 Clothes = new Clothes()
+
+             };
+             return View(model);
+         }
+
+         */
+        // Add 
         [HttpGet]
-        public IActionResult Add(string categoryName)
+        public IActionResult Add()
         {
-            Category category = new();
-            category.CategoryName = categoryName;
-            category.CreatedOn = DateTime.UtcNow;
-            category.IsDeleted = false;
-            category.CreatedByUserId = "LivanurErdem";
-            _dbcontext.Categories.Add(category);
-            _dbcontext.SaveChanges();
             return View();
         }
+        [HttpPost]
+         public IActionResult Add(string categoryName, string gender)
+         {
+            if (string.IsNullOrEmpty(categoryName))
+            {
+                // Eğer categoryName null veya boşsa hata mesajı gönder veya işlem yap
+                return BadRequest("Category name cannot be null or empty.");
+            }
+
+
+
+            Category category = new();
+             category.CategoryName = categoryName;
+             category.Gender = (HELZFashion.Domain.Enums.Gender)Convert.ToInt32(gender);
+             category.CreatedOn = DateTime.UtcNow;
+             category.IsDeleted = false;
+             category.CreatedByUserId = "LivanurErdem";
+             _dbcontext.Categories.Add(category);
+             _dbcontext.SaveChanges();
+             return View();
+         }
+
+
+
+
         //Delete
         [HttpGet]
         public IActionResult Delete(string id) { 

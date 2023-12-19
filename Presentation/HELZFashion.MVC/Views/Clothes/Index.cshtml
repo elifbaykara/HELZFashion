@@ -21,6 +21,7 @@
                 <th></th> <!-- Delete Button Column -->
                 <th></th> <!-- Update Button Column -->
                 <th></th> <!-- Details Button Column -->
+                <th></th> <!-- Basket Button Column -->
             </tr>
         </thead>
         <tbody>
@@ -56,6 +57,17 @@
                     <td><a asp-action="Delete" asp-route-id="@clothes.Id" class="btn btn-outline-danger">Delete</a></td>
                     <td><a asp-action="Update" asp-route-id="@clothes.Id" class="btn btn-outline-primary">Update</a></td>
                     <td><a asp-action="Details" asp-route-id="@clothes.Id" class="btn btn-outline-warning">Details</a></td>
+
+                    <td>
+                        <a asp-controller="Basket"
+                           asp-action="AddToBasket"
+                           asp-route-productId="@clothes.Id"
+                           asp-route-quantity=1
+                           class="btn btn-outline-info">
+                            Add To Basket
+                        </a>
+                    </td>
+
                 </tr>
             }
         </tbody>
