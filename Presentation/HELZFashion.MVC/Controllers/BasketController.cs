@@ -61,7 +61,9 @@ namespace HELZFashion.MVC.Controllers
                 {
                     Id = Guid.NewGuid(),
                     Clothes = clothes,
-                    Quantity = quantity
+                    Quantity = quantity,
+                    CreatedOn = DateTime.UtcNow,
+                    CreatedByUserId = "HaticeDeveci",
                 };
 
                 _context.BasketItems.Add(basketItem);

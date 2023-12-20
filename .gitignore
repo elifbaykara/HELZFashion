@@ -397,3 +397,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 Presentation/HELZFashion.MVC/appsettings.json
+/Presentation/HELZFashion.MVC/appsettings.Development.json

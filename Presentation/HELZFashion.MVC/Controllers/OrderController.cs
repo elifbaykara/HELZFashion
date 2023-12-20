@@ -57,6 +57,7 @@ namespace HELZFashion.MVC.Controllers
                 OrderItems = basket,
                 CreatedOn = DateTime.UtcNow,
                 OrderDate = DateTime.UtcNow,
+                CreatedByUserId = "HaticeDeveci",
             };
 
             _context.Orders.Add(order);
@@ -67,7 +68,8 @@ namespace HELZFashion.MVC.Controllers
             {
                 Basket = basket,
                 Payment = orderPaymentMethod,
-                ShippingAddress = orderShippingAddress
+                ShippingAddress = orderShippingAddress,
+
             };
             HttpContext.Session.Remove("Basket");
             return RedirectToAction("OrderSuccess");

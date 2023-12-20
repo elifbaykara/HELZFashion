@@ -11,6 +11,7 @@ namespace HELZFashion.Domain.Enums
         Pending = 1,
         Shipped = 2,
         Delivered = 3,
-        Canceled = 4
+        Canceled = 4,
+        Processing = 5
     }
 }
