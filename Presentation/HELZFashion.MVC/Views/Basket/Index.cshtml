@@ -1,7 +1,63 @@
 ﻿@model HELZFashion.Domain.Entities.Basket
+<style>
+    /* CSS stilleri buraya eklenir */
+    body {
+        background-color: #f8f9fa; /* Sayfa arka plan rengi */
+    }
+
+    .container {
+        background-color: #ffffff; /* Container arka plan rengi */
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hafif bir gölge efekti */
+    }
+
+    h2 {
+        color: #007bff; /* Başlık rengi */
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #dee2e6;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #343a40; /* Tablo başlık arka plan rengi */
+        color: #ffffff; /* Tablo başlık metin rengi */
+    }
+
+    tbody tr:hover {
+        background-color: #f8f9fa; /* Tablo satırı üzerine gelindiğinde arka plan rengi */
+    }
+
+    h3 {
+        margin-top: 20px;
+        color: #28a745; /* Total Price başlık rengi */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Checkout buton arka plan rengi */
+        border-color: #007bff;
+        color: #ffffff; /* Checkout buton metin rengi */
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Checkout buton hover rengi */
+            border-color: #0056b3;
+        }
+</style>
 
 <div class="container mt-3">
     <h2>Basket</h2>
+  
 
     @if (Model.Items.Count == 0)
     {
@@ -14,7 +70,6 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Brand</th>
                     <th>Price</th>
                     <th>Quantity</th>
                 </tr>
@@ -24,7 +79,6 @@
                 {
                     <tr>
                         <td>@item.Clothes.Name</td>
-                        <td>@item.Clothes.Brand.Name</td>
                         <td>@item.Clothes.Price</td>
                         <td>@item.Quantity</td>
                     </tr>

@@ -1,5 +1,45 @@
 ﻿@model List<HELZFashion.Domain.Entities.Order>
+<style>
+    /* CSS stilleri buraya eklenir */
+    h2 {
+        color: #007bff; /* Başlık rengi */
+    }
 
+    table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #dc3545;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #343a40; /* Tablo başlık arka plan rengi */
+        color: #dc3545; /* Tablo başlık metin rengi */
+    }
+
+    tbody tr:hover {
+        background-color: #f8f9fa; /* Tablo satırı üzerine gelindiğinde arka plan rengi */
+    }
+
+    a.btn {
+        color: #343a40;
+        background-color: #dc3545; /* Delete buton arka plan rengi */
+        border-color: #dc3545;
+        padding: 5px 10px;
+        border-radius: 4px;
+        display: inline-block;
+    }
+
+        a.btn:hover {
+            background-color: #bd2130; /* Delete buton hover rengi */
+            border-color: #bd2130;
+        }
+</style>
 <h2>Orders</h2>
 
 <table class="table">
