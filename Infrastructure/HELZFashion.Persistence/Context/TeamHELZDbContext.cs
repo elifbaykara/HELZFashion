@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HELZFashion.Persistence.Context
 {
-    public class HELZFashionDbContext : DbContext
+    public class TeamHELZDbContext : DbContext
     {
 
         public DbSet<Basket> Baskets { get; set; }
@@ -19,7 +19,7 @@ namespace HELZFashion.Persistence.Context
         public DbSet<Clothes> ClothesList { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public HELZFashionDbContext(DbContextOptions<HELZFashionDbContext> dbContextOptions) : base(dbContextOptions)
+        public TeamHELZDbContext(DbContextOptions<TeamHELZDbContext> dbContextOptions) : base(dbContextOptions)
         {
 
         }

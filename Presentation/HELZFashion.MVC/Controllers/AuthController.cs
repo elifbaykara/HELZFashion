@@ -101,7 +101,7 @@ namespace HELZFashion.MVC.Controllers
 
             _toastNotification.AddSuccessToastMessage($"Başarıyla giriş yapıldı.Hoş geldin {user.UserName}");
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index","Home");
         }
     }
 }

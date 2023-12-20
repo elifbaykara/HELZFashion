@@ -1,0 +1,38 @@
+﻿@model List<HELZFashion.Domain.Entities.Order>
+
+<h2>Orders</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order Content</th>
+            <th>Shipping Address</th>
+            <th>Payment Method</th>
+            <th>Order Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>
+                    <ul>
+                        @foreach (var item in order.OrderItems.Items)
+                        {
+                            <li>@item.Clothes.Name</li>
+
+                        }
+                    </ul>
+                </td>
+                <td>@order.ShippingAddress</td>
+                <td>@order.Payment</td>
+                <td>@order.OrderDate</td>
+                <td>
+                    <a asp-action="DeleteOrder" asp-route-id="@order.Id">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

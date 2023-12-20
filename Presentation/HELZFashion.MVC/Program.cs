@@ -4,6 +4,7 @@ using HELZFashion.MVC.Controllers;
 using HELZFashion.Persistence.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,12 +23,12 @@ builder.Services.AddDbContext<HELZIdentityContext>(options =>
     options.UseNpgsql(connectionString);
 });
 
-builder.Services.AddDbContext<HELZFashionDbContext>(options =>
+builder.Services.AddDbContext<TeamHELZDbContext>(options =>
 {
     options.UseNpgsql(connectionString);
 });
 
-builder.Services.AddDbContext<HELZFashionDbContext>();
+builder.Services.AddDbContext<TeamHELZDbContext>();
 
 builder.Services.AddControllersWithViews().AddNToastNotifyToastr();
 
@@ -46,7 +47,7 @@ builder.Services.AddIdentity<User, Role>
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
         options.User.RequireUniqueEmail = false;
 
-    }).AddEntityFrameworkStores<HELZFashionDbContext>();
+    }).AddEntityFrameworkStores<HELZIdentityContext>();
 
 builder.Services.Configure<SecurityStampValidatorOptions>(options =>
 {
@@ -68,6 +69,18 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.ExpireTimeSpan = System.TimeSpan.FromDays(7);
     options.AccessDeniedPath = new PathString("/Auth/AccessDenied");
 });
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session süresi ayarlanabilir
+});
+/*builder.Services.AddControllersWithViews()
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+    });
+bu kisma tekrar bak calismazsa sil*/
+
 
 
 builder.Services.AddSession(options =>
@@ -93,11 +106,12 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.UseSession();
+
 
 app.UseNToastNotify();
 

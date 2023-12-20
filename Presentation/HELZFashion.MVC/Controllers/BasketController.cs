@@ -6,14 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using HELZFashion.MVC.Extensions;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace HELZFashion.MVC.Controllers
 {
     public class BasketController : Controller
     {
-        private readonly HELZFashionDbContext _context;
+        private readonly TeamHELZDbContext _context;
 
-        public BasketController(HELZFashionDbContext context)
+        public BasketController(TeamHELZDbContext context)
         {
             _context = context;
   
@@ -34,17 +35,19 @@ namespace HELZFashion.MVC.Controllers
 
         [HttpPost]
         [HttpGet]
-        public IActionResult AddToBasket(Guid productId, int quantity)
+        public IActionResult AddToBasket(Guid productId, int quantity, string brandId)
         {
             var basket = HttpContext.Session.Get<Basket>("Basket");
-            var clothes = _context.Clothes.Include(x => x.Brand).FirstOrDefault(x => x.Id == productId);
-
+            var clothes = _context.ClothesList.Include(x => x.Brand).FirstOrDefault(x => x.Id == productId);
             if (basket == null)
             {
                 basket = new Basket
                 {
                     Id = Guid.NewGuid(),
                     Items = new List<BasketItem>(),
+                    CreatedOn = DateTime.UtcNow,
+                    IsDeleted = false,
+                    CreatedByUserId = "HaticeDeveci",
                 };
 
                 _context.Baskets.Add(basket);
@@ -63,12 +66,13 @@ namespace HELZFashion.MVC.Controllers
 
                 _context.BasketItems.Add(basketItem);
                 basket.Items.Add(basketItem);
+           
             }
             else
             {
                 basketItem.Quantity += quantity;
             }
-
+        
             HttpContext.Session.Set("Basket", basket);
             _context.SaveChanges();
 
