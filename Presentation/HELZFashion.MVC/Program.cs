@@ -30,6 +30,7 @@ builder.Services.AddDbContext<TeamHELZDbContext>(options =>
 
 builder.Services.AddDbContext<TeamHELZDbContext>();
 
+builder.Services.AddControllersWithViews().AddNToastNotifyToastr();
 
 builder.Services.AddSession();
 
@@ -80,6 +81,12 @@ builder.Services.AddSession(options =>
     });
 bu kisma tekrar bak calismazsa sil*/
 
+
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session süresi ayarlanabilir
+});
 
 
 var app = builder.Build();

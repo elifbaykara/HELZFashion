@@ -95,22 +95,42 @@ namespace HELZFashion.MVC.Controllers
             return RedirectToAction("index");
         }
 
+        /*  [HttpGet]
+          [Route("[controller]/[action]/{id}")]
+          public IActionResult Details(string id)
+          {
+              var clothes = _context.ClothesList.Where(x => x.Id == Guid.Parse(id)).FirstOrDefault();
+
+              if (clothes != null)
+              {
+
+                  if (!string.IsNullOrEmpty(clothes.ImageUrl))
+                  {
+                      return View(clothes);
+                  }
+              }
+              _context.SaveChanges();
+              return View(clothes);
+          }*/
+
         [HttpGet]
         [Route("[controller]/[action]/{id}")]
         public IActionResult Details(string id)
         {
-            var clothes = _context.ClothesList.Where(x => x.Id == Guid.Parse(id)).FirstOrDefault();
-
-            if (clothes != null)
+            if (!Guid.TryParse(id, out Guid clothesId))
             {
-
-                if (!string.IsNullOrEmpty(clothes.ImageUrl))
-                {
-                    return View(clothes);
-                }
+            
+                return BadRequest("Invalid ID format");
             }
-            _context.SaveChanges();
-            return View(clothes);
+
+            var clothes = _context.ClothesList.FirstOrDefault(x => x.Id == clothesId);
+
+            if (clothes != null && !string.IsNullOrEmpty(clothes.ImageUrl))
+            {
+                return View(clothes);
+            }
+      
+            return NotFound("Clothes not found or ImageUrl is empty");
         }
 
         /* [HttpGet]

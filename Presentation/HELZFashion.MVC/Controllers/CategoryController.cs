@@ -49,9 +49,6 @@ namespace HELZFashion.MVC.Controllers
                 // Eğer categoryName null veya boşsa hata mesajı gönder veya işlem yap
                 return BadRequest("Category name cannot be null or empty.");
             }
-
-
-
             Category category = new();
              category.CategoryName = categoryName;
              category.Gender = (HELZFashion.Domain.Enums.Gender)Convert.ToInt32(gender);
@@ -62,9 +59,6 @@ namespace HELZFashion.MVC.Controllers
              _dbcontext.SaveChanges();
              return View();
          }
-
-
-
 
         //Delete
         [HttpGet]
