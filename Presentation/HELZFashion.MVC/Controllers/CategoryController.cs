@@ -31,6 +31,27 @@ namespace HELZFashion.MVC.Controllers
             _dbcontext.SaveChanges();
             return View();
         }
+        [HttpPost]
+         public IActionResult Add(string categoryName, string gender)
+         {
+            if (string.IsNullOrEmpty(categoryName))
+            {
+                // Eğer categoryName null veya boşsa hata mesajı gönder veya işlem yap
+                return BadRequest("Category name cannot be null or empty.");
+            }
+            Category category = new();
+             category.CategoryName = categoryName;
+             category.Gender = (HELZFashion.Domain.Enums.Gender)Convert.ToInt32(gender);
+             category.CreatedOn = DateTime.UtcNow;
+             category.IsDeleted = false;
+             category.CreatedByUserId = "LivanurErdem";
+             _dbcontext.Categories.Add(category);
+             _dbcontext.SaveChanges();
+             return View();
+         }
+
+
+
         //Delete
         [HttpGet]
         public IActionResult Delete(string id) { 

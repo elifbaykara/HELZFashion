@@ -92,25 +92,75 @@ namespace HELZFashion.MVC.Controllers
             return RedirectToAction("index");
         }
 
+        /*  [HttpGet]
+          [Route("[controller]/[action]/{id}")]
+          public IActionResult Details(string id)
+          {
+              var clothes = _context.ClothesList.Where(x => x.Id == Guid.Parse(id)).FirstOrDefault();
+
+              if (clothes != null)
+              {
+
+                  if (!string.IsNullOrEmpty(clothes.ImageUrl))
+                  {
+                      return View(clothes);
+                  }
+              }
+              _context.SaveChanges();
+              return View(clothes);
+          }*/
+
         [HttpGet]
         [Route("[controller]/[action]/{id}")]
         public IActionResult Details(string id)
         {
-            var clothes = _context.ClothesList.Where(x => x.Id == Guid.Parse(id)).FirstOrDefault();
-
-            if (clothes != null)
+            if (!Guid.TryParse(id, out Guid clothesId))
             {
-
-                if (!string.IsNullOrEmpty(clothes.ImageUrl))
-                {
-                    return View(clothes);
-                }
+            
+                return BadRequest("Invalid ID format");
             }
-            _context.SaveChanges();
-            return View(clothes);
+
+            var clothes = _context.ClothesList.FirstOrDefault(x => x.Id == clothesId);
+
+            if (clothes != null && !string.IsNullOrEmpty(clothes.ImageUrl))
+            {
+                return View(clothes);
+            }
+      
+            return NotFound("Clothes not found or ImageUrl is empty");
         }
 
-        [HttpGet]
+        /* [HttpGet]
+         public IActionResult Update()
+         {
+             return View();
+         }
+
+         [HttpPost]
+         public IActionResult Update(Guid id, string name, string description, string brandId, decimal price, ColorType color, string pictureUrl, Category categoryId)
+         {
+
+             var brand = _context.Brands.Where(x => x.Id == Guid.Parse(brandId)).FirstOrDefault();
+             var clothes = _context.ClothesList.FirstOrDefault(x => x.Id == id);
+
+             if (clothes is not null)
+             {
+                 clothes.Name = name;
+                 clothes.Description = description;
+                 clothes.Brand = brand;
+                 clothes.Price = price;
+                 clothes.ColorType = color;
+                 clothes.ImageUrl = pictureUrl;
+                 clothes.Category = categoryId;
+
+
+                 _context.SaveChanges();
+                 return RedirectToAction("Index");
+
+             }
+             return View("error");
+
+         }*/
         public IActionResult Update()
         {
             return View();

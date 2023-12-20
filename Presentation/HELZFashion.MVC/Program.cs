@@ -29,6 +29,7 @@ builder.Services.AddDbContext<HELZFashionDbContext>(options =>
 
 builder.Services.AddDbContext<HELZFashionDbContext>();
 
+builder.Services.AddControllersWithViews().AddNToastNotifyToastr();
 
 builder.Services.AddSession();
 
@@ -66,6 +67,12 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
     options.ExpireTimeSpan = System.TimeSpan.FromDays(7);
     options.AccessDeniedPath = new PathString("/Auth/AccessDenied");
+});
+
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session süresi ayarlanabilir
 });
 
 
