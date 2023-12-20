@@ -91,7 +91,7 @@ namespace HELZFashion.MVC.Controllers
 
             // Description
             htmlText = htmlText.Replace("{{Description}}",
-                "We are delighted that you have joined us! 😍  \n Please activate your account by clicking the button below to confirm your email address. \u2193 ");
+                "We are delighted that you have joined us! 😍  \n  Please activate your account by clicking the button below to confirm your email address. \u2193 ");
 
             htmlText = htmlText.Replace("{{ButtonLink}}", buttonLink);
 

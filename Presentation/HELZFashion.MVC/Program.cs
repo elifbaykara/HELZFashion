@@ -4,11 +4,7 @@ using HELZFashion.MVC.Controllers;
 using HELZFashion.Persistence.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
-using Newtonsoft.Json;
-
 using Resend;
-
 using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,7 +37,6 @@ builder.Services.AddDbContext<TeamHELZDbContext>(options =>
 
 builder.Services.AddDbContext<TeamHELZDbContext>();
 
-builder.Services.AddControllersWithViews().AddNToastNotifyToastr();
 
 builder.Services.AddSession();
 
@@ -80,12 +75,6 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.ExpireTimeSpan = System.TimeSpan.FromDays(7);
     options.AccessDeniedPath = new PathString("/Auth/AccessDenied");
 });
-
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session süresi ayarlanabilir
-});
-
 
 builder.Services.AddSession(options =>
 {
