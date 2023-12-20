@@ -4,7 +4,11 @@ using HELZFashion.MVC.Controllers;
 using HELZFashion.Persistence.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
 using Newtonsoft.Json;
+
+using Resend;
+
 using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +18,13 @@ builder.Services.
     AddControllersWithViews()
     .AddNToastNotifyToastr();
 
+builder.Services.AddOptions();
+builder.Services.AddHttpClient<ResendClient>();
+builder.Services.Configure<ResendClientOptions>(o =>
+{
+    o.ApiToken = "re_G1ptTQpC_NfmLrhqXUiE6Ru9nyrSSEsbL";
+});
+builder.Services.AddTransient<IResend, ResendClient>();
 
 var connectionString = builder.Configuration.GetSection("HELZFashionDb").Value;
 
@@ -46,8 +57,8 @@ builder.Services.AddIdentity<User, Role>
         options.User.AllowedUserNameCharacters =
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
         options.User.RequireUniqueEmail = false;
-
-    }).AddEntityFrameworkStores<HELZIdentityContext>();
+    }).AddEntityFrameworkStores<HELZIdentityContext>()
+    .AddTokenProvider<DataProtectorTokenProvider<User>>(TokenOptions.DefaultProvider);
 
 builder.Services.Configure<SecurityStampValidatorOptions>(options =>
 {

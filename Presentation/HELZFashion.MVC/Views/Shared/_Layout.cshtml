@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="~/HELZFrontend.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <style>
-        .container {
+         .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0px;
         }
-
+        
         .searchbar {
             display: flex;
             align-items: center;
@@ -85,8 +85,8 @@
         <div class="container">
             <img src="https://i.pinimg.com/originals/55/f9/85/55f98565644ca47d20b36fc2ae43a944.jpg" width="150px">
 
-            <div class="container h-100">
-                <div class="d-flex justify-content-center">
+            <div class="container ">
+                <div class="d-fle">
                     <div class="searchbar">
                         <input class="search_input form-control" type="text" name="" placeholder="Search...">
                         <button href="#" class="search_icon"><i class="fas fa-search"></i></button>
@@ -94,9 +94,12 @@
                 </div>
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <img src="https://i.pinimg.com/474x/56/db/55/56db55b4a1c25714c100d86d2ff8f67d.jpg" width="150px">
+                </a>    
+                
+                <a class="navbar-brand" asp-area="" asp-controller="Auth" asp-action="Register">
+                    <img src="https://i.pinimg.com/474x/14/58/63/14586383190a2d3e39c1d103759643ee.jpg" width="90px">
                 </a>
 
-                <img src="https://i.pinimg.com/474x/14/58/63/14586383190a2d3e39c1d103759643ee.jpg" width="90px">
                 <img src="https://i.pinimg.com/474x/71/28/0f/71280faddd64e21ce73316035b6eda7b.jpg" width="70px" style="margin-right:5px">
 
             </div>
@@ -154,7 +157,7 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
