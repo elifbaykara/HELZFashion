@@ -1,11 +1,48 @@
 ﻿@using HELZFashion.Domain.Entities
 @model List<Clothes>
 
+
+<style>
+    .table {
+        width: 1000px;
+        border-collapse: collapse;
+        margin-top: 20px auto;
+        border-color: #47280B;
+        margin-top: 5px;
+        margin: auto;
+    }
+
+    th {
+        color: #47280B;
+    }
+
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+
+    tbody tr:hover {
+        background-color: #47280B; /* Üzerine gelinen satırın arka plan rengi */
+        color: white; /* Üzerine gelinen satırın yazı rengi */
+    }
+
+    .btn {
+        
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
 <div class="container mt-3 text-center">
     <h2 style="color: navy;">
         🧥 Clothes 👚
     </h2>
-    <table class="table table-dark table-hover">
+    <table class="table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -54,20 +91,18 @@
                     </td>
                     <td>@clothes.Gender</td>
                     <td>@clothes.SizeType</td>
-                    <td><a asp-action="Delete" asp-route-id="@clothes.Id" class="btn btn-outline-danger">Delete</a></td>
-                    <td><a asp-action="Update" asp-route-id="@clothes.Id" class="btn btn-outline-primary">Update</a></td>
-                    <td><a asp-action="Details" asp-route-id="@clothes.Id" class="btn btn-outline-warning">Details</a></td>
-
+                    <td><a asp-action="Delete" asp-route-id="@clothes.Id" class="btn btn-danger">Delete</a></td>
+                    <td><a asp-action="Update" asp-route-id="@clothes.Id" class="btn btn-success">Update</a></td>
+                    <td><a asp-action="Details" asp-route-id="@clothes.Id" class="btn btn-warning">Details</a></td>
                     <td>
                         <a asp-controller="Basket"
                            asp-action="AddToBasket"
                            asp-route-productId="@clothes.Id"
                            asp-route-quantity=1
-                           class="btn btn-outline-info">
+                           class="btn btn-info">
                             Add To Basket
                         </a>
                     </td>
-
                 </tr>
             }
         </tbody>
