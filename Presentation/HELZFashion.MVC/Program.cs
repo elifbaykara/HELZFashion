@@ -85,13 +85,6 @@ builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30); // Session süresi ayarlanabilir
 });
-/*builder.Services.AddControllersWithViews()
-    .AddNewtonsoftJson(options =>
-    {
-        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-    });
-bu kisma tekrar bak calismazsa sil*/
-
 
 
 builder.Services.AddSession(options =>

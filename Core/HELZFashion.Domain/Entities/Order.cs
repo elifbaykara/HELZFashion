@@ -15,6 +15,6 @@ namespace HELZFashion.Domain.Entities
         public DateTimeOffset OrderDate { get; set; }
         public OrderStatus Status { get; set; }
         public Basket OrderItems { get; set; }
-
+        public Guid BasketId { get; set; }
     }
 }

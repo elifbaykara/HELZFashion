@@ -18,6 +18,7 @@ namespace HELZFashion.Domain.Entities
         public string Material { get; set; }
         public string ImageUrl { get; set; }
         public Guid BrandId { get; set; }
+        [Newtonsoft.Json.JsonIgnore]
         public Brand Brand { get; set; }
         public ColorType ColorType { get; set; }
         public Gender Gender { get; set; }

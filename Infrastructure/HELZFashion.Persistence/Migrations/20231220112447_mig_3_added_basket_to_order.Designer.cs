@@ -3,6 +3,7 @@ using System;
 using HELZFashion.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HELZFashion.Persistence.Migrations
 {
     [DbContext(typeof(TeamHELZDbContext))]
-    partial class TeamHELZDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231220112447_mig_3_added_basket_to_order")]
+    partial class mig_3_added_basket_to_order
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

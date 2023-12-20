@@ -14,8 +14,8 @@ namespace HELZFashion.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Order> builder)
         {
             builder.HasOne(o => o.OrderItems)
-                  .WithOne()
-                  .HasForeignKey<Basket>(b => b.OrderId)
+                  .WithOne(b => b.Order)
+                  .HasForeignKey<Order>(o => o.BasketId)
                   .IsRequired();
 
             builder.Property(x => x.ShippingAddress).IsRequired();
