@@ -1,11 +1,14 @@
-﻿@model HELZFashion.MVC.ViewModels.BasketAndOrderViewModel
-@using HELZFashion.Domain.Enums;
-<h1>AddOrder</h1>
+﻿@using Microsoft.AspNetCore.Identity;
+@using HELZFashion.Domain.Entities;
+@model List<Brand>
 
+<style>
     .table {
-        width: 100%;
+        width: 1000px;
         border-collapse: collapse;
-        margin-top: 20px;
+        margin-top: 20px auto;
+        border-collapse: collapse;
+        margin-top: 50px;
         border-color: #D03B3B;
         margin-top: 5px;
         margin: auto;
@@ -27,6 +30,7 @@
     tbody tr:hover {
         background-color: #D03B3B;
         color: white;
+    }
 
     .btn {
         background-color: #47280B;
@@ -39,31 +43,31 @@
     }
 </style>
 
-<div class="container mt-3 text-center">
-    <h2 style="color: navy;">
+<div class=" mt-5 text-center">
+    <h2 style="color:  #D03B3B;">
         💄 Brands 👟
 
     </h2>
-    <table class="table">
+    <table class="table mt-5">
         <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
-            @foreach (var brand in Model)
-            {
-                <tr>
-                    <td>@brand.Name</td>
-                    <td>@brand.Description</td>
-                    <td>
-                        <a asp-action="Delete" asp-route-id="@brand.Id" class="btn bg-danger">Delete</a>
-                        <a asp-action="Update" asp-route-id="@brand.Id" class="btn bg-warning">Update</a>
-                    </td>
-                </tr>
-            }
+        @foreach (var brand in Model)
+        {
+            <tr>
+                <td>@brand.Name</td>
+                <td>@brand.Description</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@brand.Id" class="btn bg-danger">Delete</a>
+                    <a asp-action="Update" asp-route-id="@brand.Id" class="btn bg-warning">Update</a>
+                </td>
+            </tr>
+        }
         </tbody>
     </table>
 </div>

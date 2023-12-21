@@ -1,58 +1,66 @@
 ﻿@model HELZFashion.Domain.Entities.Basket
 <style>
-    
-    body {
-        background-color: #f8f9fa;
-    }
-
-    .container {
-        background-color: #ffffff;
-        padding: 20px;
-        border-radius: 8px;
-    }
-
-    h2 {
-        color: #823384;
-    }
-
-    table {
-        width: 100%;
+    .table {
+        width: 1000px;
         border-collapse: collapse;
-        background-color: #343a40;
-    }
-
-    th, td {
-        border: 1px solid #dee2e6;
-        padding: 8px;
-        text-align: left;
-        margin: 4px 0;
+        margin-top: 20px auto;
+    border-color: #CDD873;
+        margin-top:5px;
+        margin:auto;
     }
 
     th {
-        background-color: #ffffff;
-        color: #ffffff; 
+    color: #CDD873;
     }
+
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
 
     tbody tr:hover {
-        background-color: #f8f9fa; 
+        background-color: #D5AA41;
+        color: white; 
     }
 
-    h3 {
+    .btn {
+        background-color: #D5AA41;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    h2{
+        text-align:center;
+    }
+    h3{
+        text-align:center;
+        margin-top: 35px;
+        margin-bottom: 35px;
+    }
+    button{
+        text-align:center;
+    }
+
+    .btn-container {
         margin-top: 20px;
-        color: #28a745; 
+        text-align: center; /* Center the content */
     }
 
-    .btn-primary {
-        background-color: #007bff; 
-        border-color: #007bff;
-        color: #ffffff; 
+    .btn {
+        background-color: #D5AA41;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none; /* Remove default link styling */
     }
-
-        .btn-primary:hover {
-            background-color: #0056b3; 
-            border-color: #0056b3;
-        }
 </style>
+
 
 <div>
     <h2>Basket</h2>
@@ -67,21 +75,21 @@
         decimal total_price = 0;
         <table class="table ">
             <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                </tr>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.Items)
-                {
-                    <tr>
-                        <td>@item.Clothes.Name</td>
-                        <td>@item.Clothes.Price</td>
-                        <td>@item.Quantity</td>
-                    </tr>
-                }
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.Clothes.Name</td>
+                    <td>@item.Clothes.Price</td>
+                    <td>@item.Quantity</td>
+                </tr>
+            }
             </tbody>
         </table>
         {
@@ -90,8 +98,9 @@
                 total_price += item.Clothes.Price;
             }
         }
-        <h3>Total Price: @total_price &#x20BA; </h3>
+        <h3>Total Price: $ @total_price </h3>
 
-        <a asp-controller="Order" asp-action="AddOrder" class="btn btn-primary">Checkout</a>
-    }
+        <div class="btn-container">
+            <a asp-controller="Order" asp-action="AddOrder" class="btn btn-primary">Checkout</a>
+        </div>    }
 </div>

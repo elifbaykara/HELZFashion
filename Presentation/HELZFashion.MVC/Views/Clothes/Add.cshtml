@@ -6,7 +6,7 @@
 <head>
     <style>
         .card-header {
-            background-color: #47280B;
+            background-color: #28543C;
             color: white;
             font-size: 25px;
             text-align: center;
@@ -14,7 +14,7 @@
 
         .card-body {
             background-color: white;
-            color: #47280B;
+            color: #28543C;
             font-size: 25px;
             text-align: center;
         }
@@ -24,11 +24,11 @@
         }
 
         body {
-            font-color: #47280B;
+            font-color: #28543C;
         }
 
         .btn {
-            background-color: #47280B;
+            background-color: #28543C;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -72,6 +72,7 @@
                                 <div class="invalid-feedback" style="color: red;">Please fill out this field.</div>
                             </div>
                             <div class="mb-3">
+
                                 <label class="form-label"><strong>ColorType:</strong></label>
                                 <select asp-for="Clothes.ColorType" class="form-select" name="color" required>
                                     <option value="1">Blue</option>
@@ -116,7 +117,8 @@
                                 <div class="invalid-feedback" style="color: red;">Please fill out this field.</div>
                             </div>
 
-                            <br />
+                         
+                            <label class="form-label"><strong>Brand:</strong></label>
                             <select name="brandId" class="form-select" required>
                                 <option value=""><strong>Select a Brand</strong></option>
                                 @foreach (var brand in Model.Brands)
@@ -124,6 +126,8 @@
                                     <option value="@brand.Id">@brand.Name</option>
                                 }
                             </select>
+                       
+                            <label class="form-label"><strong>Category:</strong></label>
                             <select name="categoryId" class="form-select" required>
                                 <option value=""><strong>Select a Category</strong></option>
                                 @foreach (var category in Model.Categories)
@@ -132,9 +136,9 @@
                                 }
                             </select>
                             <br />
-                            <br />
+      
                             <div class="text-center">
-                                <br />
+                               
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>

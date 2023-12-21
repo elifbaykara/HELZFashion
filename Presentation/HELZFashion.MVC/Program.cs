@@ -18,7 +18,7 @@ builder.Services.AddOptions();
 builder.Services.AddHttpClient<ResendClient>();
 builder.Services.Configure<ResendClientOptions>(o =>
 {
-    o.ApiToken = "re_G1ptTQpC_NfmLrhqXUiE6Ru9nyrSSEsbL";
+    o.ApiToken = "re_MDYScZr6_46qP16Jwtu5d4VdVAwzNJugb";
 });
 builder.Services.AddTransient<IResend, ResendClient>();
 
