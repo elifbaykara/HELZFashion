@@ -1,7 +1,8 @@
-﻿@model HELZFashion.MVC.ViewModels.BasketAndOrderViewModel
-@using HELZFashion.Domain.Enums;
-<h1>AddOrder</h1>
+﻿@using Microsoft.AspNetCore.Identity;
+@using HELZFashion.Domain.Entities;
+@model List<Brand>
 
+<style>
     .table {
         width: 100%;
         border-collapse: collapse;
@@ -27,6 +28,7 @@
     tbody tr:hover {
         background-color: #D03B3B;
         color: white;
+    }
 
     .btn {
         background-color: #47280B;
