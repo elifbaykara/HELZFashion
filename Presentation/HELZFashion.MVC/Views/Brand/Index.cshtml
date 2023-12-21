@@ -1,25 +1,50 @@
-﻿@using Microsoft.AspNetCore.Identity;
-@using HELZFashion.Domain.Entities;
-@model List<Brand>
+﻿@model HELZFashion.MVC.ViewModels.BasketAndOrderViewModel
+@using HELZFashion.Domain.Enums;
+<h1>AddOrder</h1>
 
-<div class="container mt-3">
-    <h2>Brands</h2>
-    <table class="table table-dark table-hover">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Desc.</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var brand in Model)
-            {
+<h4>Order</h4>
+<style>
+    .card-header {
+        background-color: #47280B;
+        color: white;
+        font-size: 25px;
+        text-align: center;
+    }
 
-                <tr>
-                    <td>@brand.Name</td>
-                    <td>@brand.Description</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    .card-body {
+        background-color: white;
+        color: #47280B;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .card {
+        width: 450px;
+    }
+
+    body {
+        font-color: #47280B;
+    }
+
+    .btn {
+        background-color: #47280B;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <div class="container mt-3">
+            
+        </div>
+    </div>
 </div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
