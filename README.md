@@ -38,31 +38,46 @@ Sign Up & Login UI, Login Screen Design, Add Clothes Screen Design, List Clothes
 ## Issues and Solutions
 In this project, we encountered several challenges related to the database. Here are the main issues and how these problems were addressed:
 - Errors and File Path Issues:
-We faced various errors in database operations.
-Issues arose with file paths.
+We faced various errors in database operations. Issues arose with file paths.
 Solution:
 A detailed investigation was conducted to fix errors and address file path problems.
-Database Viewing Problem:
+
+
+-Database Viewing Problem:
 There were difficulties in viewing the created database.
 Solution:
 Meticulous work was done on the database connection and configuration.
-File Conflicts and Conflict Resolution:
+
+
+-File Conflicts and Conflict Resolution:
 Some files conflicted in the project, resulting in conflicts.
 Solution:
 Conflict resolutions were performed via Git, and file conflicts were resolved.
-Usage of Two Separate Databases:
+
+
+-Usage of Two Separate Databases:
 Two separate databases were used in the project: HelzIdentity (for the Identity part) and TeamHelz (Project database).
 Solution:
 Necessary configurations were made to ensure compatibility between the two databases.
-Necessity to Recreate Databases:
+
+
+-Necessity to Recreate Databases:
 Due to issues with the databases, we had to delete and recreate them.
 Solution:
 The databases were deleted, configurations were reviewed, and the databases were recreated.
+
+
 Dealing with these issues was a learning process to overcome challenges, gain more knowledge about database usage, and work on configuration improvements.
-On the database side, we encountered several challenges, such as:
+
+
+-On the database side, we encountered several challenges, such as:
 The inability to control the Session structure from the database (the database couldn't manage events in the session, causing errors as we used the cart in the order section).
 Ensuring that orders belong to a single user.
-Representing payment methods and order statuses as enums on the website and struggling with their display.
+
+
+-Representing payment methods and order statuses as enums on the website and struggling with their display.
+
+
 Facing difficulties in ensuring that shopping carts belong to different users.
 Through collaboration within the team, assistance from online tutorials, research, and guidance from our instructors, we successfully resolved these issues.
 
