@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -63,6 +64,9 @@
         .brand {
             background-color: #D03B3B;
         }
+        .order{
+            background-color: #D5AA41;
+        }
         /* Adjust the background color of the dropdown menu items */
         .dropdown-menu.category a,
         .dropdown-menu.clothes a,
@@ -77,86 +81,104 @@
                 background-color: #ddd; /* Adjust the hover background color as needed */
             }
 
+        .nav-item-spacing {
+            margin-right: 120px; /* İstediğiniz mesafeyi buradan ayarlayabilirsiniz */
+        }
+
     </style>
 
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="https://i.pinimg.com/originals/55/f9/85/55f98565644ca47d20b36fc2ae43a944.jpg" width="150px">
+<header>
+    <div class="container">
+        <img src="https://i.pinimg.com/originals/55/f9/85/55f98565644ca47d20b36fc2ae43a944.jpg" width="150px">
 
-            <div class="container ">
-                <div class="d-fle">
-                    <div class="searchbar">
-                        <input class="search_input form-control" type="text" name="" placeholder="Search...">
-                        <button href="#" class="search_icon"><i class="fas fa-search"></i></button>
-                    </div>
+        <div class="container ">
+            <div class="d-fle">
+                <div class="searchbar">
+                    <input class="search_input form-control" type="text" name="" placeholder="Search...">
+                    <button href="#" class="search_icon"><i class="fas fa-search"></i></button>
                 </div>
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="https://i.pinimg.com/474x/56/db/55/56db55b4a1c25714c100d86d2ff8f67d.jpg" width="150px">
-                </a>    
+            </div>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="https://i.pinimg.com/474x/56/db/55/56db55b4a1c25714c100d86d2ff8f67d.jpg" width="150px">
+            </a>    
                 
-                <a class="navbar-brand" asp-area="" asp-controller="Auth" asp-action="Register">
-                    <img src="https://i.pinimg.com/474x/14/58/63/14586383190a2d3e39c1d103759643ee.jpg" width="90px">
-                </a>
+            <a class="navbar-brand" asp-area="" asp-controller="Auth" asp-action="Register">
+                <img src="https://i.pinimg.com/474x/14/58/63/14586383190a2d3e39c1d103759643ee.jpg" width="90px">
+            </a>
+            <a class="navbar-brand" asp-area="" asp-controller="Basket" asp-action="Index">
+                    <img src="https://i.pinimg.com/474x/71/28/0f/71280faddd64e21ce73316035b6eda7b.jpg" width="80px">
+            </a>
+           
 
-                <img src="https://i.pinimg.com/474x/71/28/0f/71280faddd64e21ce73316035b6eda7b.jpg" width="70px" style="margin-right:5px">
-
-            </div>
-
-
-            <img src="https://i.pinimg.com/originals/55/f9/85/55f98565644ca47d20b36fc2ae43a944.jpg" width="150px">
         </div>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3">
 
 
-            <div class="container-fluid mt-2">
+        <img src="https://i.pinimg.com/originals/55/f9/85/55f98565644ca47d20b36fc2ae43a944.jpg" width="150px">
+    </div>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3">
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1 justify-content-center">
-                        <!-- Inside the <ul> for the "Category" menu -->
+
+        <div class="container-fluid mt-2">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1 justify-content-center">
+                    <!-- Inside the <ul> for the "Category" menu -->
+                    <li class="nav-item nav-item-spacing dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; background-color: #CDD873; border-radius: 45px; font-size: 20px; padding-right:25px;  padding-left:25px">
+                            Category
+                        </a>
+                        <div class="dropdown-menu category" aria-labelledby="categoryDropdown">
+                            <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Add">Add Category</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Index">List Category</a>
+                        </div>
+                    </li>
+
+                    <!-- Inside the <ul> for the "Clothes" menu -->
+                    <li class="nav-item nav-item-spacing dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="clothesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; background-color: #28543C; border-radius: 45px; font-size: 20px; padding-right:25px; padding-left:25px">
+                            Clothes
+                        </a>
+                        <div class="dropdown-menu  clothes" aria-labelledby="clothesDropdown">
+                            <a class="dropdown-item" asp-area="" asp-controller="Clothes" asp-action="Add">Add Clothes</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Clothes" asp-action="Index">List Clothes</a>
+                        </div>
+                    </li>
+
+                    <!-- Inside the <ul> for the "Brand" menu -->
                         <li class="nav-item nav-item-spacing dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; background-color: #CDD873; border-radius: 45px; font-size: 20px; padding-right:25px;  padding-left:25px">
-                                Category
-                            </a>
-                            <div class="dropdown-menu category" aria-labelledby="categoryDropdown">
-                                <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Add">Add Category</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Index">List Category</a>
-                            </div>
-                        </li>
-
-                        <!-- Inside the <ul> for the "Clothes" menu -->
-                        <li class="nav-item nav-item-spacing dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="clothesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; background-color: #28543C; border-radius: 45px; font-size: 20px; padding-right:25px; padding-left:25px">
-                                Clothes
-                            </a>
-                            <div class="dropdown-menu  clothes" aria-labelledby="clothesDropdown">
-                                <a class="dropdown-item" asp-area="" asp-controller="Clothes" asp-action="Add">Add Clothes</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Clothes" asp-action="Index">List Clothes</a>
-                            </div>
-                        </li>
-
-                        <!-- Inside the <ul> for the "Brand" menu -->
-                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="brandDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; background-color: #D03B3B; border-radius: 45px; font-size: 20px; padding-right:25px; padding-left:25px">
-                                Brand
-                            </a>
-                            <div class="dropdown-menu  brand" aria-labelledby="brandDropdown">
-                                <a class="dropdown-item" asp-area="" asp-controller="Brand" asp-action="AddBrand">Add Brand</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Brand" asp-action="Index">List Brand</a>
-                            </div>
-                        </li>
+                            Brand
+                        </a>
+                        <div class="dropdown-menu  brand" aria-labelledby="brandDropdown">
+                            <a class="dropdown-item" asp-area="" asp-controller="Brand" asp-action="AddBrand">Add Brand</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Brand" asp-action="Index">List Brand</a>
+                        </div>
+                    </li>
 
-                    </ul>
-                </div>
+                        <li class="nav-item nav-item-spacing dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="brandDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; background-color: #D5AA41; border-radius: 45px; font-size: 20px; padding-right:25px; padding-left:25px">
+                            Order
+                        </a>
+                        <div class="dropdown-menu  order" aria-labelledby="brandDropdown">
+                            <a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="AddOrder">Add Order</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="Index">Order List</a>
 
+                        </div>
+                    </li>
+
+                </ul>
             </div>
-        </nav>
-    </header>
+
+        </div>
+    </nav>
+</header>
+
     <div>
         <main role="main" class="pb-3">
             @RenderBody()
