@@ -1,5 +1,10 @@
-﻿@using HELZFashion.Domain.Entities
-@model List<Clothes>
+﻿
+    @using HELZFashion.Domain.Entities
+    @model List<Clothes>
+
+
+
+    <head>
 
 
 <style>
@@ -104,7 +109,143 @@
                         </a>
                     </td>
                 </tr>
+
             }
-        </tbody>
-    </table>
-</div>
+
+            .column {
+                flex: 1;
+                padding: 10px;
+            }
+
+            .card-header{
+            background-color: #28543C;
+            }
+            h2 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+
+            card {
+                margin: 15px;
+                border-color: #B2B2B2;
+                position: relative;
+                transition: transform 0.1s;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                width: 200px;
+                height: 400px;
+                margin-left:20 px;
+            }
+
+                card:hover {
+                    transform: scale(1.1);
+                }
+
+            .card-body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+             .button-group {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                margin-top: 10px;
+            }
+            .accordion{
+                border: hiiden;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Clothes</h2>
+    <div class="card" style=" width: 400px; height:400; margin-left: 45px;">
+        @foreach (var clothes in Model)
+        {
+            <div class="card-header">
+                <h4 class="card-title" style="color: white; text-align: center; margin-bottom:5px;">@clothes.Name</h4>
+
+            </div>
+
+
+        <div class="card column">
+            <img src="@clothes.ImageUrl" alt="@clothes.Name" style="max-width: 150px; margin: 0 auto; display: block;"/>
+            <div class="card-body">
+
+                <p class="card-text ">
+                    <span>@clothes.Gender</span>
+                </p>
+                <p class="card-text" >
+                        <span style="background-color: #28543C; color:white; border-radius:20px; padding: 5px; display: inline-block;">@clothes.Brand.Name</span>
+                </p>
+                <p class="card-text price "style="font-size:25px;">$ @clothes.Price</p>
+                <div class="button-group">
+                    <a href="/Clothes/Details/@clothes.Id" class="btn btn-primary" style="height:40px;">Detail 🔍</a>
+                    <a asp-controller="Basket"
+                       asp-action="AddToBasket"
+                       asp-route-productId="@clothes.Id"
+                       asp-route-quantity=1
+                       class="btn btn-info"
+                       style="height:40px; color:white;">
+                        Basket 🛒
+                    </a>
+                </div>   
+
+            </div>
+            
+
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                       Click the Button
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="card-text ">
+                                    <p class="card-text ">
+                                        <b>Description: </b> <span>@clothes.Description</span>
+                                    </p>
+                                    <b>Material: </b> <span>@clothes.Material</span>
+                                </p>
+                                <p class="card-text ">
+                                    <b>Color Type: </b> <span>@clothes.ColorType</span>
+                                </p>
+                                <p class="card-text ">
+                                    <b>Size Type: </b> <span>@clothes.SizeType</span>
+                                </p>
+                                <div class="button-group">
+                                    <a asp-action="Delete" asp-route-id="@clothes.Id" class="btn btn-danger" style="height:40px;">Delete 🗑</a>
+                                    <a asp-action="Update" asp-route-id="@clothes.Id" class="btn btn-warning" style="height:40px; color:white;"> Update 📝</a>
+                                </div>
+                            </div>
+                        </div>
+                  
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    </body>
+            <script>
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    let hovered = false;
+
+                    card.addEventListener('mouseenter', () => {
+                        if (!hovered) {
+                            card.style.transform = 'scale(1.1)';
+                            hovered = true;
+                        }
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'scale(1)';
+                        hovered = false;
+                    });
+                });
+            </script>
+
