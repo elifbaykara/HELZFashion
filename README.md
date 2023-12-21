@@ -67,4 +67,16 @@ Facing difficulties in ensuring that shopping carts belong to different users.
 Through collaboration within the team, assistance from online tutorials, research, and guidance from our instructors, we successfully resolved these issues.
 
 ## The interface of the project
+![image](https://github.com/elifbaykara/HELZFashion/assets/141638184/283d4054-0fc3-4670-877f-6d07a3b71df0)
+![image](https://github.com/elifbaykara/HELZFashion/assets/141638184/84f78f62-db54-46dc-93fb-b86aef815bc1)
+![image](https://github.com/elifbaykara/HELZFashion/assets/141638184/9034368b-f34f-400f-a835-ac60fedb0134)
+![image](https://github.com/elifbaykara/HELZFashion/assets/141638184/c19c2a28-6008-46de-bb0f-efbabf022779)
+![image](https://github.com/elifbaykara/HELZFashion/assets/141638184/53fb2384-2c87-4ab3-8706-787a9d2989de)
+![image](https://github.com/elifbaykara/HELZFashion/assets/141638184/f424ac49-9a66-4782-8f09-9e0af43e5393)
+![image](https://github.com/elifbaykara/HELZFashion/assets/141638184/bd655ba9-83e9-433a-8437-b21e842bc9ae)
+![image](https://github.com/elifbaykara/HELZFashion/assets/141638184/be00df45-d3ca-401c-814e-72d1c123f678)
+
+
+
+
 
