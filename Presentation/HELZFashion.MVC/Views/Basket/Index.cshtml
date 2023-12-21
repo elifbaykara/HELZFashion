@@ -1,63 +1,62 @@
 ﻿@model HELZFashion.Domain.Entities.Basket
 <style>
-    /* CSS stilleri buraya eklenir */
+    
     body {
-        background-color: #f8f9fa; /* Sayfa arka plan rengi */
+        background-color: #f8f9fa;
     }
 
     .container {
-        background-color: #ffffff; /* Container arka plan rengi */
+        background-color: #ffffff;
         padding: 20px;
-        margin-top: 20px;
         border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hafif bir gölge efekti */
     }
 
     h2 {
-        color: #007bff; /* Başlık rengi */
+        color: #823384;
     }
 
     table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 20px;
+        background-color: #343a40;
     }
 
     th, td {
         border: 1px solid #dee2e6;
         padding: 8px;
         text-align: left;
+        margin: 4px 0;
     }
 
     th {
-        background-color: #343a40; /* Tablo başlık arka plan rengi */
-        color: #ffffff; /* Tablo başlık metin rengi */
+        background-color: #ffffff;
+        color: #ffffff; 
     }
 
     tbody tr:hover {
-        background-color: #f8f9fa; /* Tablo satırı üzerine gelindiğinde arka plan rengi */
+        background-color: #f8f9fa; 
     }
 
     h3 {
         margin-top: 20px;
-        color: #28a745; /* Total Price başlık rengi */
+        color: #28a745; 
     }
 
     .btn-primary {
-        background-color: #007bff; /* Checkout buton arka plan rengi */
+        background-color: #007bff; 
         border-color: #007bff;
-        color: #ffffff; /* Checkout buton metin rengi */
+        color: #ffffff; 
     }
 
         .btn-primary:hover {
-            background-color: #0056b3; /* Checkout buton hover rengi */
+            background-color: #0056b3; 
             border-color: #0056b3;
         }
 </style>
 
-<div class="container mt-3">
+<div>
     <h2>Basket</h2>
-  
+
 
     @if (Model.Items.Count == 0)
     {
@@ -66,7 +65,7 @@
     else
     {
         decimal total_price = 0;
-        <table class="table table-dark table-hover">
+        <table class="table ">
             <thead>
                 <tr>
                     <th>Name</th>
