@@ -8,20 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Order</title>
     <style>
-        body {
-            background-color: #f8f9fa; 
-        }
+ 
 
         h1, h4 {
-            color: #47280B; 
+            color: #D5AA41;
         }
 
-        .container {
-            background-color: #ffffff; 
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-        }
+
 
         .form-group {
             margin-bottom: 20px;
@@ -42,7 +35,7 @@
         }
 
         .btn-primary {
-            background-color: #47280B; 
+            background-color: #D5AA41;
             color: #ffffff; 
             padding: 10px 20px;
             border: none;
@@ -125,7 +118,7 @@
                     {
                         total_price += item.Clothes.Price;
                     }
-                    <h3 class="total-price">Total Price: @total_price &#x20BA;</h3>
+                    <h3 class="total-price">Total Price: $ @total_price </h3>
                 }
                 else
                 {

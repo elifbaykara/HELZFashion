@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="~/HELZFrontend.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <style>
-         .container {
+        .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0px;
         }
-        
+
         .searchbar {
             display: flex;
             align-items: center;
@@ -63,19 +63,37 @@
         .brand {
             background-color: #D03B3B;
         }
+
+        .order {
+            background-color: #D5AA41;
+        }
+
+        .sign {
+            background-color: #E0B58A;
+            ;
+        }
         /* Adjust the background color of the dropdown menu items */
         .dropdown-menu.category a,
         .dropdown-menu.clothes a,
-        .dropdown-menu.brand a {
+        .dropdown-menu.brand a,
+        .dropdown-menu.order a,
+        .dropdown-menu.sign a {
             color: white; /* Set the desired text color */
         }
 
             /* Add hover effect for better visibility */
             .dropdown-menu.category a:hover,
             .dropdown-menu.clothes a:hover,
-            .dropdown-menu.brand a:hover {
+            .dropdown-menu.brand a:hover,
+            .dropdown-menu.order a:hover,
+            .dropdown-menu.sign a:hover,
+            {
                 background-color: #ddd; /* Adjust the hover background color as needed */
             }
+
+        .nav-item-spacing {
+            margin-right: 100px; /* İstediğiniz mesafeyi buradan ayarlayabilirsiniz */
+        }
 
     </style>
 
@@ -95,14 +113,14 @@
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <img src="https://i.pinimg.com/474x/56/db/55/56db55b4a1c25714c100d86d2ff8f67d.jpg" width="150px">
                 </a>
-                <a class="navbar-brand" asp-area="" asp-controller="Auth" asp-action="Login">
-                    <button class="btn btn-primary">Login</button>
-                </a>
+
                 <a class="navbar-brand" asp-area="" asp-controller="Auth" asp-action="Register">
-                    <button class="btn btn-success">Sign Up</button>
+                    <img src="https://i.pinimg.com/474x/14/58/63/14586383190a2d3e39c1d103759643ee.jpg" width="90px">
+                </a>
+                <a class="navbar-brand" asp-area="" asp-controller="Basket" asp-action="Index">
+                    <img src="https://i.pinimg.com/474x/71/28/0f/71280faddd64e21ce73316035b6eda7b.jpg" width="80px">
                 </a>
 
-                <img src="https://i.pinimg.com/474x/71/28/0f/71280faddd64e21ce73316035b6eda7b.jpg" width="70px" style="margin-right:5px">
 
             </div>
 
@@ -143,7 +161,7 @@
                         </li>
 
                         <!-- Inside the <ul> for the "Brand" menu -->
-                        <li class="nav-item dropdown">
+                        <li class="nav-item nav-item-spacing dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="brandDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; background-color: #D03B3B; border-radius: 45px; font-size: 20px; padding-right:25px; padding-left:25px">
                                 Brand
                             </a>
@@ -152,13 +170,37 @@
                                 <a class="dropdown-item" asp-area="" asp-controller="Brand" asp-action="Index">List Brand</a>
                             </div>
                         </li>
+                        <!-- Inside the <ul> for the "order" menu -->
 
+                        <li class="nav-item nav-item-spacing dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="orderDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; background-color: #D5AA41; border-radius: 45px; font-size: 20px; padding-right:25px; padding-left:25px">
+                                Order
+                            </a>
+                            <div class="dropdown-menu  order" aria-labelledby="orderDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="AddOrder">Add Order</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="Index">Order List</a>
+
+                            </div>
+                        </li>
+
+                        <!-- Inside the <ul> for the "SignIn" menu -->
+
+                        <li class="nav-item nav-item-spacing dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="signDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white; background-color: #E0B58A; border-radius: 45px; font-size: 20px; padding-right:25px; padding-left:25px">
+                                Log In & Register
+                            </a>
+                            <div class="dropdown-menu  sign" aria-labelledby="signDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="Auth" asp-action="Register">Register</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Auth" asp-action="Login">Log In</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
 
             </div>
         </nav>
     </header>
+
     <div>
         <main role="main" class="pb-3">
             @RenderBody()
