@@ -73,6 +73,7 @@ Through collaboration within the team, assistance from online tutorials, researc
 ![image](https://github.com/elifbaykara/HELZFashion/assets/141638184/c19c2a28-6008-46de-bb0f-efbabf022779)
 ![image](https://github.com/elifbaykara/HELZFashion/assets/141638184/53fb2384-2c87-4ab3-8706-787a9d2989de)
 ![image](https://github.com/elifbaykara/HELZFashion/assets/141638184/f424ac49-9a66-4782-8f09-9e0af43e5393)
+![image](https://github.com/elifbaykara/HELZFashion/assets/141638184/e28c0f93-2013-43d9-badf-b6a4276e21fa)
 ![image](https://github.com/elifbaykara/HELZFashion/assets/141638184/bd655ba9-83e9-433a-8437-b21e842bc9ae)
 ![image](https://github.com/elifbaykara/HELZFashion/assets/141638184/be00df45-d3ca-401c-814e-72d1c123f678)
 
