@@ -73,14 +73,14 @@ namespace HELZFashion.MVC.Controllers
             return RedirectToAction("Index");
         }
 
-        //Update
+        /*//Update
         [HttpGet]
         [Route("[controller]/[action]/{id}")]
         public IActionResult Update([FromRoute] string id)
         {
             var category = _dbcontext.Categories.Where(x => x.Id == Guid.Parse(id)).FirstOrDefault();
             return View(category);
-        }
+        }*/
 
         /* // GetAll
          [HttpGet]
@@ -96,6 +96,33 @@ namespace HELZFashion.MVC.Controllers
              return View(category);
          }*/
 
+        [HttpGet]
+        public IActionResult Update(Guid id)
+        {
+          
+            var categories = _dbcontext.Categories.ToList();
+
+            var upClothes = new ClothesAddBrandCategory
+            {
+                Categories = categories
+            };
+
+            return View(upClothes);
+        }
+        [HttpPost]
+        public IActionResult Update(Guid id, string CategoryName)
+        {
+            var category = _dbcontext.Categories.FirstOrDefault(x => x.Id == id);
+
+            if (category is not null)
+            {
+                category.CategoryName = CategoryName;
+                _dbcontext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
+        }
 
     }
 }

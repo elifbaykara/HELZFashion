@@ -3,10 +3,113 @@
     @model List<Clothes>
 
 
+
     <head>
-        <style>
-            .row {
-                display: flex;
+
+
+<style>
+    .table {
+        width: 1000px;
+        border-collapse: collapse;
+        margin-top: 20px auto;
+        border-color: #47280B;
+        margin-top: 5px;
+        margin: auto;
+    }
+
+    th {
+        color: #47280B;
+    }
+
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+
+    tbody tr:hover {
+        background-color: #47280B; /* Üzerine gelinen satırın arka plan rengi */
+        color: white; /* Üzerine gelinen satırın yazı rengi */
+    }
+
+    .btn {
+        
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<div class="container mt-3 text-center">
+    <h2 style="color: navy;">
+        🧥 Clothes 👚
+    </h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Material</th>
+                <th>Color</th>
+                <th>Image</th>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Gender</th>
+                <th>Size Type</th>
+                <th></th> <!-- Delete Button Column -->
+                <th></th> <!-- Update Button Column -->
+                <th></th> <!-- Details Button Column -->
+                <th></th> <!-- Basket Button Column -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var clothes in Model)
+            {
+                <tr>
+                    <td>@clothes.Name</td>
+                    <td>
+                        <div style="max-width: 200px; word-wrap: break-word;">
+                            @clothes.Description
+                        </div>
+                    </td>
+                    <td>@clothes.Price</td>
+                    <td>@clothes.Material</td>
+                    <td>@clothes.ColorType</td>
+                    <td>
+                        <img src="@clothes.ImageUrl" alt="@clothes.Name" style="max-width: 100px;" />
+                    </td>
+                    <td>
+                        @if (clothes.Brand != null)
+                        {
+                            @clothes.Brand.Name
+                        }
+                    </td>
+                    <td>
+                        @if (clothes.Category != null)
+                        {
+                            @clothes.Category.CategoryName
+                        }
+                    </td>
+                    <td>@clothes.Gender</td>
+                    <td>@clothes.SizeType</td>
+                    <td><a asp-action="Delete" asp-route-id="@clothes.Id" class="btn btn-danger">Delete</a></td>
+                    <td><a asp-action="Update" asp-route-id="@clothes.Id" class="btn btn-success">Update</a></td>
+                    <td><a asp-action="Details" asp-route-id="@clothes.Id" class="btn btn-warning">Details</a></td>
+                    <td>
+                        <a asp-controller="Basket"
+                           asp-action="AddToBasket"
+                           asp-route-productId="@clothes.Id"
+                           asp-route-quantity=1
+                           class="btn btn-info">
+                            Add To Basket
+                        </a>
+                    </td>
+                </tr>
+
             }
 
             .column {

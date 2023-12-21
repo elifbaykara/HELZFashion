@@ -1,7 +1,6 @@
-﻿
-<style>
+﻿<style>
     .card-header {
-        background-color: #CDD873;
+        background-color: #D03B3B;
         color: white;
         font-size: 25px;
         text-align: center;
@@ -9,7 +8,7 @@
 
     .card-body {
         background-color: white;
-        color: #CDD873;
+        color: #D03B3B;
         font-size: 25px;
         text-align: center;
     }
@@ -19,11 +18,11 @@
     }
 
     body {
-        font-color: #CDD873;
+        font-color: #D03B3B;
     }
 
     .btn {
-        background-color: #CDD873;
+        background-color: #D03B3B;
         color: white;
         padding: 10px 20px;
         border: none;
@@ -31,18 +30,23 @@
         cursor: pointer;
     }
 </style>
+
 <div class="container d-flex justify-content-center ">
     <div class="row ">
         <div class="col-12 ">
             <div class="card w-250">
                 <div class="card-header">
-                    Update Category
+                    Update Brand
                 </div>
                 <div class="card-body">
                     <form method="post">
                         <div class="form-group">
-                            <label for="CategoryName">Category Name</label>
-                            <input type="text" id="CategoryName" name="CategoryName" class="form-control border-warning">
+                            <label for="Name">Brand Name</label>
+                            <input type="text" id="Name" name="Name" class="form-control border-warning">
+
+                            <label for="Description">Brand Description</label>
+                            <input type="text" id="Description" name="Description" class="form-control border-warning">
+
                         </div>
                         <div class="text-center">
                             <br />

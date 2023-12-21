@@ -1,23 +1,67 @@
-﻿@using Microsoft.AspNetCore.Identity;
-@using HELZFashion.Domain.Entities;
-@model List<Brand>
+﻿@model HELZFashion.MVC.ViewModels.BasketAndOrderViewModel
+@using HELZFashion.Domain.Enums;
+<h1>AddOrder</h1>
 
-<div class="container mt-3">
-    <h2>Brands</h2>
-    <table class="table table-dark table-hover">
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border-color: #D03B3B;
+        margin-top: 5px;
+        margin: auto;
+    }
+
+    th {
+        color: #D03B3B;
+        background-color: #47280B;
+        padding: 10px;
+        text-align: left;
+    }
+
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr:hover {
+        background-color: #D03B3B;
+        color: white;
+
+    .btn {
+        background-color: #47280B;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+</style>
+
+<div class="container mt-3 text-center">
+    <h2 style="color: navy;">
+        💄 Brands 👟
+
+    </h2>
+    <table class="table">
         <thead>
             <tr>
                 <th>Title</th>
-                <th>Desc.</th>
+                <th>Description</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var brand in Model)
             {
-
                 <tr>
                     <td>@brand.Name</td>
                     <td>@brand.Description</td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@brand.Id" class="btn bg-danger">Delete</a>
+                        <a asp-action="Update" asp-route-id="@brand.Id" class="btn bg-warning">Update</a>
+                    </td>
                 </tr>
             }
         </tbody>
