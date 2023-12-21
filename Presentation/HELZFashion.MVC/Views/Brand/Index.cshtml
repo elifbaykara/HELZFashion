@@ -2,49 +2,68 @@
 @using HELZFashion.Domain.Enums;
 <h1>AddOrder</h1>
 
-<h4>Order</h4>
-<style>
-    .card-header {
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border-color: #D03B3B;
+        margin-top: 5px;
+        margin: auto;
+    }
+
+    th {
+        color: #D03B3B;
         background-color: #47280B;
+        padding: 10px;
+        text-align: left;
+    }
+
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr:hover {
+        background-color: #D03B3B;
         color: white;
-        font-size: 25px;
-        text-align: center;
-    }
-
-    .card-body {
-        background-color: white;
-        color: #47280B;
-        font-size: 25px;
-        text-align: center;
-    }
-
-    .card {
-        width: 450px;
-    }
-
-    body {
-        font-color: #47280B;
-    }
 
     .btn {
         background-color: #47280B;
         color: white;
-        padding: 10px 20px;
+        padding: 8px 16px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        text-decoration: none;
     }
 </style>
-<hr />
-<div class="row">
-    <div class="col-md-6">
-        <div class="container mt-3">
-            
-        </div>
-    </div>
+
+<div class="container mt-3 text-center">
+    <h2 style="color: navy;">
+        💄 Brands 👟
+
+    </h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var brand in Model)
+            {
+                <tr>
+                    <td>@brand.Name</td>
+                    <td>@brand.Description</td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@brand.Id" class="btn bg-danger">Delete</a>
+                        <a asp-action="Update" asp-route-id="@brand.Id" class="btn bg-warning">Update</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}

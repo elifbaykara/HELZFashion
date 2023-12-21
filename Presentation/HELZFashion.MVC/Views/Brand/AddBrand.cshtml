@@ -1,13 +1,67 @@
-﻿<h2>Add Brand</h2>
+﻿<style>
+    .card-header {
+        background-color: #D03B3B;
+        color: white;
+        font-size: 25px;
+        text-align: center;
+    }
 
-<form method="post">
-    <div class="mb-3 mt-3">
-        <label class="form-label">Brand Name:</label>
-        <input type="text" class="form-control" placeholder="Enter Brand Name" name="brandName">
+    .card-body {
+        background-color: white;
+        color: #D03B3B;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .card {
+        width: 450px;
+    }
+
+    body {
+        font-color: #D03B3B;
+    }
+
+    .btn {
+        background-color: #D03B3B;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <div class="col-12">
+            <div class="card w-450">
+                <!-- Updated card width -->
+                <div class="card-header">
+                    Add Brand <!-- Updated title -->
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="brandName">Brand Name</label> <!-- Updated label -->
+                            <input type="text" id="brandName" name="brandName" class="form-control border-primary mt-5">
+                        </div>
+                        <div class="form-group">
+                            <label for="brandDescription">Displaying Text</label> <!-- Updated label -->
+                            <input type="text" id="brandDescription" name="brandDescription" class="form-control border-primary mt-5">
+                        </div>
+                        <div class="text-center">
+                            <br />
+                            <button type="submit" class="btn">Create</button> <!-- Updated button text -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="mb-3 mt-3">
-        <label class="form-label">Displaing Text:</label>
-        <input type="text" class="form-control" placeholder="Enter Displaing Text" name="brandDescription">
-    </div>
-    <button type="submit" class="btn btn-primary">Create</button>
-</form>
+</div>
+
+
+
+
+
+
+
