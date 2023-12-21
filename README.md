@@ -24,8 +24,8 @@ Sign Up & Login UI, Login Screen Design, Add Clothes Screen Design, List Clothes
 
 
 ## Hatice's Part  [![Hatice](https://img.shields.io/badge/Hatice-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/hatice-dvc)
-
-
+-Add to Cart Feature: Users can easily add the clothes they want to purchase to their shopping carts. We created an entity called "Basket," storing the items users added to their carts in a list called "BasketItem." It holds the properties "Clothes" and "Quantity." A Basket Controller was established to manage user cart operations, enabling add-to-cart functionality.The SessionExtensions extension was used, providing extended methods for handling session data in C#. It was utilized for scenarios such as maintaining cart information and user sessions.Then we created the BasketAndOrderViewModel to consolidate users' shopping carts and order information into a single model. This allows users to fill out cart content, payment, and delivery details in the same form while shopping.
+-Order Creation and Viewing Feature: Customers can purchase items added to their carts by selecting their preferred payment method.Placed orders can be viewed in a list format, displaying order items, order date, and payment method. An entity named "Order" was created, encompassing properties such as ShippingAddress, PaymentMethod, OrderDate, Status, OrderItems, and BasketId. Enum structures were used for PaymentMethod and Status, while OrderItems are of type Basket. An enum named "OrderStatus" was introduced to store order statuses (pending/shipped/delivered/cancelled). A PaymentMethod enum was created to manage payment methods (cash/credit card/debit card/bank transfer/other). An Order Controller was established to manage customer orders, containing methods for successfully completing orders (OrderSuccess), creating new orders, and deleting orders. Additionally, views for carts and orders were created.
 
 ## Issues and Solutions
 In this project, we encountered several challenges related to the database. Here are the main issues and how these problems were addressed:
@@ -51,7 +51,12 @@ Due to issues with the databases, we had to delete and recreate them.
 Solution:
 The databases were deleted, configurations were reviewed, and the databases were recreated.
 Dealing with these issues was a learning process to overcome challenges, gain more knowledge about database usage, and work on configuration improvements.
-
+On the database side, we encountered several challenges, such as:
+The inability to control the Session structure from the database (the database couldn't manage events in the session, causing errors as we used the cart in the order section).
+Ensuring that orders belong to a single user.
+Representing payment methods and order statuses as enums on the website and struggling with their display.
+Facing difficulties in ensuring that shopping carts belong to different users.
+Through collaboration within the team, assistance from online tutorials, research, and guidance from our instructors, we successfully resolved these issues.
 
 ## The interface of the project
 
